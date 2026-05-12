@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════════╗
+  ║  LANDING PAGE: BẢO MẬT TOÀN DIỆN — VIETTEL NETWORKS 2026              ║
+  ║  Nội dung: Cẩm Nang Khắc Phục Lỗ Hổng Bảo Mật Đa Vai Trò            ║
+  ║            + Lập Trình Bảo Mật Python & Node.js                        ║
+  ║  Brand: Viettel Networks — FS Magistral / Be Vietnam Pro               ║
+  ║  Màu: #E30613 (Viettel Red) · #0A0A0A · #1A1A1A · #F5F5F5            ║
+  ╚══════════════════════════════════════════════════════════════════════════╝
+  Sections:
+  [01] Nav sticky blur
+  [02] Hero — full-height gradient dark
+  [03] Trust Bar — số liệu + công cụ
+  [04] Bản đồ lỗ hổng & Rủi ro
+  [05] Lợi ích theo vai trò
+  [06] Nội dung chương trình — 4 phần
+  [07] Secure Coding thực hành
+  [08] Thông tin đào tạo
+  [09] FAQ accordion
+  [10] CTA cuối
+  [11] Footer
+
+  Cần chỉnh: Thay link form đăng ký ở tất cả nút CTA (tìm: LINK_FORM_DANG_KY)
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bảo Mật Toàn Diện — Cẩm Nang Đào Tạo Nội Bộ | Viettel Networks 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════════════════
+   CSS VARIABLES — Viettel Brand
+════════════════════════════════════════════════════ */
+:root {
+  --red:        #E30613;
+  --red-dark:   #B30000;
+  --red-light:  #FF2D2D;
+  --black:      #0A0A0A;
+  --dark:       #111111;
+  --surface:    #1A1A1A;
+  --surface2:   #222222;
+  --gray1:      #4A4A4A;
+  --gray2:      #7F7F7F;
+  --gray3:      #CCCCCC;
+  --gray4:      #F5F5F5;
+  --white:      #FFFFFF;
+  --cyan:       #00D4FF;
+  --glow-red:   rgba(227,6,19,0.35);
+  --glow-cyan:  rgba(0,212,255,0.25);
+  --font-head:  'Be Vietnam Pro', sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+  --font-body:  'Be Vietnam Pro', sans-serif;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+  --radius-pill:9999px;
+  --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ════════════════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--font-body);
+  background:var(--black);
+  color:var(--white);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:var(--radius-pill)}
+
+/* ════════════════════════════════════════════════════
+   TYPOGRAPHY
+════════════════════════════════════════════════════ */
+.t-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
+.t-h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1.08;letter-spacing:-.02em}
+.t-h2{font-family:var(--font-head);font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:800;line-height:1.15;letter-spacing:-.01em}
+.t-h3{font-family:var(--font-head);font-size:clamp(1rem,2vw,1.3rem);font-weight:700;line-height:1.25}
+.t-body{font-size:1rem;line-height:1.7;color:var(--gray3)}
+.t-small{font-size:.85rem;color:var(--gray2)}
+.t-mono{font-family:var(--font-mono);font-size:.82rem}
+
+.grad-red{background:linear-gradient(135deg,var(--red),var(--red-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad-cyber{background:linear-gradient(135deg,var(--red) 0%,#FF6B6B 50%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ════════════════════════════════════════════════════
+   LAYOUT
+════════════════════════════════════════════════════ */
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-dark{background:var(--black)}
+.section-surface{background:var(--surface)}
+.section-surface2{background:var(--surface2)}
+
+/* ════════════════════════════════════════════════════
+   BUTTONS
+════════════════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:var(--radius-pill);
+  font-family:var(--font-head);font-weight:700;font-size:.95rem;
+  transition:var(--transition);white-space:nowrap;
+}
+.btn-primary{
+  background:var(--red);color:var(--white);
+  box-shadow:0 0 24px var(--glow-red);
+}
+.btn-primary:hover{transform:scale(1.03);box-shadow:0 0 40px var(--glow-red),0 4px 20px rgba(227,6,19,.5)}
+.btn-primary:active{transform:scale(0.98)}
+.btn-outline{
+  background:transparent;color:var(--white);
+  border:1.5px solid rgba(255,255,255,.35);
+  backdrop-filter:blur(8px);
+}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 20px var(--glow-cyan)}
+.btn-sm{padding:10px 20px;font-size:.82rem}
+.btn-lg{padding:18px 40px;font-size:1.1rem;letter-spacing:.02em}
+@keyframes pulse-glow{
+  0%,100%{box-shadow:0 0 24px var(--glow-red),0 4px 20px rgba(227,6,19,.4)}
+  50%{box-shadow:0 0 50px var(--glow-red),0 4px 40px rgba(227,6,19,.7)}
+}
+.btn-pulse{animation:pulse-glow 2s ease-in-out infinite}
+
+/* ════════════════════════════════════════════════════
+   [01] NAV
+════════════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 24px;height:64px;
+  display:flex;align-items:center;
+  transition:var(--transition);
+}
+.nav.scrolled{
+  background:rgba(10,10,10,.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  box-shadow:0 4px 30px rgba(0,0,0,.5);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;width:100%;
+  display:flex;align-items:center;gap:32px;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-logo{
+  width:32px;height:32px;border-radius:6px;
+  background:var(--red);display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-weight:900;font-size:1rem;color:var(--white);
+}
+.nav-brandname{font-family:var(--font-head);font-weight:800;font-size:.85rem;letter-spacing:.04em;line-height:1.2}
+.nav-brandname span{display:block;font-size:.62rem;font-weight:500;color:var(--gray2);letter-spacing:.08em}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.nav-link{
+  padding:7px 14px;border-radius:var(--radius-pill);
+  font-size:.82rem;font-weight:600;color:var(--gray2);
+  transition:var(--transition);white-space:nowrap;
+}
+.nav-link:hover{color:var(--white);background:rgba(255,255,255,.07)}
+.nav-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-phone{font-size:.78rem;color:var(--gray2);display:flex;align-items:center;gap:5px}
+.nav-phone:hover{color:var(--cyan)}
+
+/* ════════════════════════════════════════════════════
+   [02] HERO
+════════════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;padding:120px 24px 80px;
+  background:var(--black);
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(227,6,19,.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 70%, rgba(0,212,255,.05) 0%, transparent 60%);
+}
+/* Grid lines */
+.hero-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+.hero-inner{
+  max-width:1180px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;border-radius:var(--radius-pill);
+  border:1px solid rgba(0,212,255,.4);
+  background:rgba(0,212,255,.06);
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;
+  color:var(--cyan);text-transform:uppercase;margin-bottom:24px;
+}
+.hero-title{margin-bottom:20px}
+.hero-sub{font-size:1.05rem;color:var(--gray3);line-height:1.75;margin-bottom:36px;max-width:540px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:36px}
+.hero-proofs{display:flex;flex-wrap:wrap;gap:12px}
+.hero-proof{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 16px;border-radius:var(--radius-md);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  font-size:.8rem;font-weight:600;color:var(--gray3);
+}
+.hero-proof-icon{color:var(--cyan);font-size:1rem}
+
+/* Hero visual */
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-terminal{
+  background:var(--surface);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius-lg);padding:24px;width:100%;
+  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(227,6,19,.1);
+  font-family:var(--font-mono);font-size:.78rem;line-height:1.8;
+}
+.terminal-bar{
+  display:flex;align-items:center;gap:8px;margin-bottom:20px;padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.terminal-dot{width:11px;height:11px;border-radius:50%}
+.terminal-dot.r{background:#FF5F57}
+.terminal-dot.y{background:#FFBD2E}
+.terminal-dot.g{background:#28CA41}
+.terminal-title{flex:1;text-align:center;font-size:.72rem;color:var(--gray2)}
+.t-red{color:var(--red-light)}.t-cyan{color:var(--cyan)}.t-green{color:#4ade80}
+.t-yellow{color:#fbbf24}.t-gray{color:var(--gray2)}.t-white{color:var(--white)}
+.terminal-cursor{display:inline-block;width:8px;height:14px;background:var(--cyan);animation:blink 1.1s step-end infinite;vertical-align:middle}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-badge{
+  position:absolute;bottom:-20px;right:-10px;
+  background:var(--surface);border:1px solid rgba(227,6,19,.3);
+  border-radius:var(--radius-md);padding:12px 16px;
+  box-shadow:0 8px 30px rgba(0,0,0,.5),0 0 20px rgba(227,6,19,.15);
+  font-size:.72rem;font-weight:700;color:var(--gray3);white-space:nowrap;
+}
+.hero-badge span{color:var(--red-light)}
+
+/* Scroll arrow */
+.hero-scroll{
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--gray2);font-size:.72rem;letter-spacing:.1em;cursor:pointer;
+}
+@keyframes bounce-y{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.hero-scroll svg{animation:bounce-y 1.6s ease-in-out infinite}
+
+/* ════════════════════════════════════════════════════
+   [03] TRUST BAR
+════════════════════════════════════════════════════ */
+.trust{padding:60px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.trust-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-bottom:48px;text-align:center}
+.stat-num{
+  font-family:var(--font-head);font-size:2.8rem;font-weight:900;
+  line-height:1;margin-bottom:6px;
+}
+.stat-label{font-size:.78rem;color:var(--gray2);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.trust-divider{height:1px;background:rgba(255,255,255,.07);margin-bottom:36px}
+.trust-tools-label{text-align:center;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gray2);margin-bottom:20px}
+.trust-tools{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
+.tool-badge{
+  padding:9px 22px;border-radius:var(--radius-pill);
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  font-family:var(--font-mono);font-size:.78rem;font-weight:700;
+  color:var(--gray2);transition:var(--transition);
+}
+.tool-badge:hover{color:var(--cyan);border-color:rgba(0,212,255,.4);background:rgba(0,212,255,.06)}
+
+/* ════════════════════════════════════════════════════
+   SECTION HEADER
+════════════════════════════════════════════════════ */
+.sec-header{text-align:center;margin-bottom:64px}
+.sec-num{
+  display:inline-block;font-family:var(--font-mono);font-size:.72rem;
+  font-weight:700;letter-spacing:.15em;color:var(--red);
+  margin-bottom:12px;text-transform:uppercase;
+}
+.sec-title{margin-bottom:16px}
+.sec-sub{max-width:560px;margin:0 auto;color:var(--gray2);font-size:.95rem}
+
+/* ════════════════════════════════════════════════════
+   [04] RISK MAP
+════════════════════════════════════════════════════ */
+.risk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:48px}
+.risk-card{
+  padding:24px;border-radius:var(--radius-md);border:1px solid rgba(255,255,255,.07);
+  background:var(--surface);transition:var(--transition);
+}
+.risk-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.15)}
+.risk-level{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 12px;border-radius:var(--radius-pill);
+  font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:12px;
+}
+.risk-level.critical{background:rgba(227,6,19,.2);color:var(--red-light);border:1px solid rgba(227,6,19,.3)}
+.risk-level.high{background:rgba(251,146,60,.15);color:#fb923c;border:1px solid rgba(251,146,60,.3)}
+.risk-level.medium{background:rgba(251,191,36,.12);color:#fbbf24;border:1px solid rgba(251,191,36,.3)}
+.risk-level.monitor{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.25)}
+.risk-items{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.risk-tag{
+  padding:3px 10px;border-radius:var(--radius-pill);
+  background:rgba(255,255,255,.05);font-size:.7rem;
+  font-family:var(--font-mono);color:var(--gray3);
+}
+
+.group-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.group-card{
+  padding:20px;border-radius:var(--radius-md);
+  background:var(--surface2);border:1px solid rgba(255,255,255,.07);
+  text-align:center;transition:var(--transition);
+}
+.group-card:hover{border-color:rgba(227,6,19,.3);transform:translateY(-2px)}
+.group-icon{font-size:2rem;margin-bottom:10px}
+.group-title{font-size:.82rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.group-count{font-size:.7rem;color:var(--gray2);font-family:var(--font-mono)}
+
+/* ════════════════════════════════════════════════════
+   [05] BENEFITS BY ROLE
+════════════════════════════════════════════════════ */
+.role-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:48px}
+.role-tab{
+  padding:10px 24px;border-radius:var(--radius-pill);
+  font-size:.85rem;font-weight:700;color:var(--gray2);
+  border:1px solid rgba(255,255,255,.1);background:var(--surface);
+  transition:var(--transition);cursor:pointer;
+}
+.role-tab.active,.role-tab:hover{color:var(--white);border-color:var(--red);background:rgba(227,6,19,.12)}
+.role-panel{display:none}.role-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.benefit-card{
+  padding:28px;border-radius:var(--radius-md);
+  background:var(--surface);border:1px solid rgba(255,255,255,.07);
+  transition:var(--transition);
+}
+.benefit-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4);border-color:rgba(227,6,19,.2)}
+.benefit-icon{
+  width:44px;height:44px;border-radius:var(--radius-sm);
+  background:rgba(227,6,19,.12);border:1px solid rgba(227,6,19,.2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--red-light);margin-bottom:16px;
+}
+.benefit-title{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--white)}
+.benefit-desc{font-size:.85rem;color:var(--gray2);line-height:1.65}
+.benefit-tag{
+  display:inline-block;margin-top:12px;padding:3px 10px;
+  border-radius:var(--radius-pill);background:rgba(227,6,19,.1);
+  font-size:.65rem;font-weight:700;color:var(--red-light);text-transform:uppercase;letter-spacing:.08em;
+}
+
+/* ════════════════════════════════════════════════════
+   [06] CURRICULUM — 4 Parts
+════════════════════════════════════════════════════ */
+.curriculum-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.curr-card{
+  padding:32px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid rgba(255,255,255,.07);
+  transition:var(--transition);position:relative;overflow:hidden;
+}
+.curr-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--red),var(--red-light));
+  opacity:0;transition:var(--transition);
+}
+.curr-card:hover::before{opacity:1}
+.curr-card:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,.4)}
+.curr-num{
+  font-family:var(--font-head);font-size:3rem;font-weight:900;
+  line-height:1;margin-bottom:12px;
+}
+.curr-title{font-size:1.1rem;font-weight:800;margin-bottom:8px;color:var(--white)}
+.curr-sub{font-size:.82rem;color:var(--gray2);margin-bottom:20px}
+.curr-items{display:flex;flex-direction:column;gap:8px}
+.curr-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.82rem;color:var(--gray3);
+}
+.curr-item-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--red);
+  flex-shrink:0;margin-top:6px;
+}
+.curr-badge{
+  margin-top:20px;display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:var(--radius-pill);
+  background:rgba(227,6,19,.1);border:1px solid rgba(227,6,19,.2);
+  font-size:.7rem;font-weight:700;color:var(--red-light);
+}
+
+/* ════════════════════════════════════════════════════
+   [07] SECURE CODING — Code Preview
+════════════════════════════════════════════════════ */
+.code-section{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.code-lang-tabs{display:flex;gap:2px;margin-bottom:16px;
+  background:var(--surface2);border-radius:var(--radius-md);padding:4px;
+}
+.code-tab{
+  flex:1;padding:8px;border-radius:var(--radius-sm);
+  font-size:.78rem;font-weight:700;color:var(--gray2);
+  transition:var(--transition);cursor:pointer;text-align:center;
+}
+.code-tab.active{background:var(--surface);color:var(--white)}
+.code-panel{display:none}.code-panel.active{display:block}
+.code-block{
+  background:#0D1117;border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius-md);overflow:hidden;
+}
+.code-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.03);
+}
+.code-dots{display:flex;gap:6px}
+.code-dot{width:10px;height:10px;border-radius:50%}
+.code-dot.r{background:#FF5F57}.code-dot.y{background:#FFBD2E}.code-dot.g{background:#28CA41}
+.code-lang-label{font-size:.7rem;font-family:var(--font-mono);color:var(--gray2)}
+.code-body{padding:20px;font-family:var(--font-mono);font-size:.78rem;line-height:1.9;overflow-x:auto}
+.code-bad{
+  background:rgba(227,6,19,.06);border-left:3px solid var(--red);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:10px 14px;margin-bottom:12px;
+}
+.code-good{
+  background:rgba(74,222,128,.06);border-left:3px solid #4ade80;
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:10px 14px;margin-bottom:12px;
+}
+.code-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.code-bad .code-label{color:var(--red-light)}.code-good .code-label{color:#4ade80}
+.kw{color:#ff7b72}.fn{color:#d2a8ff}.str{color:#a5d6ff}.cm{color:#8b949e;font-style:italic}
+.op{color:var(--cyan)}.var{color:#ffa657}
+
+.rules-list{display:flex;flex-direction:column;gap:16px}
+.rule-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;border-radius:var(--radius-md);
+  background:var(--surface2);border:1px solid rgba(255,255,255,.07);
+  transition:var(--transition);
+}
+.rule-item:hover{border-color:rgba(227,6,19,.25);transform:translateX(4px)}
+.rule-num{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:rgba(227,6,19,.15);border:1px solid rgba(227,6,19,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-weight:900;font-size:.9rem;color:var(--red-light);
+}
+.rule-title{font-weight:700;font-size:.9rem;margin-bottom:4px;color:var(--white)}
+.rule-desc{font-size:.82rem;color:var(--gray2);line-height:1.6}
+.rule-keyword{
+  display:inline-block;padding:1px 8px;border-radius:var(--radius-pill);
+  background:rgba(227,6,19,.12);color:var(--red-light);
+  font-family:var(--font-mono);font-size:.72rem;font-weight:700;
+}
+
+/* ════════════════════════════════════════════════════
+   [08] TRAINING INFO
+════════════════════════════════════════════════════ */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.info-card{
+  padding:32px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid rgba(255,255,255,.08);
+}
+.info-free{
+  text-align:center;margin-bottom:32px;
+}
+.info-free-label{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gray2);margin-bottom:8px}
+.info-free-num{
+  font-family:var(--font-head);font-size:3.5rem;font-weight:900;
+  background:linear-gradient(135deg,var(--red),var(--red-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;
+}
+.info-table{display:flex;flex-direction:column;gap:0}
+.info-row{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.info-row:last-child{border-bottom:none}
+.info-icon{color:var(--cyan);flex-shrink:0;margin-top:2px}
+.info-key{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray2);margin-bottom:3px}
+.info-val{font-size:.9rem;font-weight:600;color:var(--white)}
+
+.perks-grid{display:flex;flex-direction:column;gap:14px}
+.perk{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px;border-radius:var(--radius-md);
+  background:var(--surface2);border:1px solid rgba(255,255,255,.06);
+  transition:var(--transition);
+}
+.perk:hover{border-color:rgba(0,212,255,.3);transform:translateX(4px)}
+.perk-icon{
+  width:38px;height:38px;border-radius:var(--radius-sm);
+  background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cyan);flex-shrink:0;
+}
+.perk-title{font-size:.9rem;font-weight:700;margin-bottom:3px;color:var(--white)}
+.perk-desc{font-size:.8rem;color:var(--gray2)}
+
+/* ════════════════════════════════════════════════════
+   [09] FAQ
+════════════════════════════════════════════════════ */
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.faq-item{
+  border-radius:var(--radius-md);
+  background:var(--surface);border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;transition:var(--transition);
+}
+.faq-item.open{border-color:rgba(227,6,19,.25)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:20px 24px;font-size:.95rem;font-weight:700;color:var(--white);
+  background:none;text-align:left;gap:16px;
+}
+.faq-q:hover{color:var(--cyan)}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:var(--transition);
+}
+.faq-item.open .faq-icon{background:rgba(227,6,19,.15);border-color:rgba(227,6,19,.3);transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;
+  padding:0 24px;font-size:.88rem;color:var(--gray3);line-height:1.75;
+}
+.faq-item.open .faq-a{max-height:300px;padding:0 24px 20px}
+.faq-contact{
+  text-align:center;margin-top:40px;padding:24px;
+  border-radius:var(--radius-md);background:var(--surface2);
+  border:1px solid rgba(255,255,255,.07);
+}
+.faq-contact p{color:var(--gray2);margin-bottom:14px;font-size:.9rem}
+.faq-contact a{color:var(--cyan);font-weight:700}
+
+/* ════════════════════════════════════════════════════
+   [10] FINAL CTA
+════════════════════════════════════════════════════ */
+.cta-section{
+  padding:120px 0;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(135deg, var(--black) 0%, #1a0005 50%, var(--black) 100%);
+}
+.cta-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%, rgba(227,6,19,.1) 0%, transparent 70%);
+}
+.cta-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;border-radius:var(--radius-pill);
+  border:1px solid rgba(227,6,19,.4);background:rgba(227,6,19,.08);
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--red-light);
+  text-transform:uppercase;margin-bottom:28px;
+}
+.cta-title{margin-bottom:12px}
+.cta-title .line1{font-family:var(--font-head);font-size:clamp(1.8rem,4vw,3rem);font-weight:300;color:rgba(255,255,255,.7)}
+.cta-title .line2{
+  font-family:var(--font-head);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:900;
+  background:linear-gradient(135deg,var(--red),#FF6B6B,var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;
+}
+.cta-sub{color:var(--gray2);font-size:1rem;margin:16px auto 40px;max-width:520px;line-height:1.7}
+.cta-micro{margin-top:16px;font-size:.8rem;color:var(--gray2)}
+.cta-micro span{color:var(--gray3);margin:0 8px}
+.cta-guarantee{
+  margin-top:32px;display:inline-flex;align-items:center;gap:10px;
+  padding:14px 24px;border-radius:var(--radius-md);
+  background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2);
+  font-size:.85rem;color:var(--gray3);
+}
+.cta-guarantee svg{color:#4ade80;flex-shrink:0}
+.cta-phone{margin-top:24px;font-size:.85rem;color:var(--gray2)}
+.cta-phone a{color:var(--cyan);font-weight:700}
+
+/* ════════════════════════════════════════════════════
+   [11] FOOTER
+════════════════════════════════════════════════════ */
+.footer{
+  padding:56px 0 32px;
+  background:var(--surface);border-top:1px solid rgba(255,255,255,.07);
+}
+.footer-top{
+  display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;
+  margin-bottom:48px;padding-bottom:48px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.footer-brand-name{font-size:1.1rem;font-weight:800;margin:12px 0 6px}
+.footer-tagline{font-size:.8rem;color:var(--gray2);line-height:1.6;max-width:280px}
+.footer-col-title{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);margin-bottom:16px}
+.footer-links{display:flex;flex-direction:column;gap:9px}
+.footer-link{font-size:.85rem;color:var(--gray2);transition:var(--transition)}
+.footer-link:hover{color:var(--cyan)}
+.footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.footer-contact-item svg{color:var(--gray2);flex-shrink:0;margin-top:2px}
+.footer-contact-item span{font-size:.85rem;color:var(--gray3);line-height:1.5}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:.75rem;color:var(--gray2)}
+.footer-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 14px;border-radius:var(--radius-pill);
+  background:rgba(227,6,19,.1);border:1px solid rgba(227,6,19,.2);
+  font-size:.68rem;font-weight:700;color:var(--red-light);letter-spacing:.08em;text-transform:uppercase;
+}
+.footer-social{display:flex;gap:10px}
+.social-btn{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gray2);transition:var(--transition);
+}
+.social-btn:hover{color:var(--cyan);border-color:rgba(0,212,255,.3);background:rgba(0,212,255,.08)}
+
+/* ════════════════════════════════════════════════════
+   STICKY CTA BAR
+════════════════════════════════════════════════════ */
+.sticky-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:999;
+  background:rgba(10,10,10,.92);backdrop-filter:blur(16px);
+  border-top:1px solid rgba(227,6,19,.3);
+  padding:12px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;transform:translateY(100%);transition:transform .4s ease;
+}
+.sticky-bar.show{transform:translateY(0)}
+.sticky-bar-text{font-size:.85rem;font-weight:600;color:var(--gray3)}
+.sticky-bar-text strong{color:var(--red-light)}
+
+/* ════════════════════════════════════════════════════
+   FLOATING BUTTON
+════════════════════════════════════════════════════ */
+.float-btn{
+  position:fixed;bottom:80px;right:24px;z-index:998;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  box-shadow:0 4px 20px rgba(227,6,19,.5);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--white);transition:var(--transition);
+}
+.float-btn:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(227,6,19,.7)}
+
+/* ════════════════════════════════════════════════════
+   EXIT POPUP
+════════════════════════════════════════════════════ */
+.popup-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,.8);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.popup-overlay.show{opacity:1;pointer-events:all}
+.popup-box{
+  max-width:440px;width:100%;padding:40px;border-radius:var(--radius-xl);
+  background:var(--surface);border:1px solid rgba(227,6,19,.2);
+  box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 60px rgba(227,6,19,.1);
+  text-align:center;position:relative;
+}
+.popup-close{
+  position:absolute;top:16px;right:16px;
+  width:30px;height:30px;border-radius:50%;
+  background:rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gray2);transition:var(--transition);font-size:1.2rem;
+}
+.popup-close:hover{background:rgba(255,255,255,.12);color:var(--white)}
+.popup-icon{font-size:2.8rem;margin-bottom:16px}
+.popup-title{font-family:var(--font-head);font-size:1.5rem;font-weight:800;margin-bottom:10px}
+.popup-sub{font-size:.9rem;color:var(--gray2);margin-bottom:24px;line-height:1.6}
+
+/* ════════════════════════════════════════════════════
+   TOAST
+════════════════════════════════════════════════════ */
+.toast-container{position:fixed;bottom:90px;left:24px;z-index:997;pointer-events:none}
+.toast{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 16px;border-radius:var(--radius-md);
+  background:var(--surface);border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 8px 24px rgba(0,0,0,.5);
+  font-size:.78rem;color:var(--gray3);
+  margin-bottom:8px;
+  transform:translateX(-120%);transition:transform .4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.toast.show{transform:translateX(0)}
+.toast-dot{width:8px;height:8px;border-radius:50%;background:#4ade80;flex-shrink:0}
+.toast strong{color:var(--white)}
+
+/* ════════════════════════════════════════════════════
+   SCROLL ANIMATIONS
+════════════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ════════════════════════════════════════════════════
+   URGENCY BANNER (top of page)
+════════════════════════════════════════════════════ */
+.urgency-banner{
+  position:fixed;top:0;left:0;right:0;z-index:1001;
+  background:linear-gradient(90deg,var(--red-dark),var(--red),var(--red-dark));
+  background-size:200% 100%;
+  animation:banner-slide 3s linear infinite;
+  padding:8px 24px;text-align:center;
+  font-size:.78rem;font-weight:700;color:var(--white);letter-spacing:.04em;
+  display:flex;align-items:center;justify-content:center;gap:12px;
+}
+@keyframes banner-slide{0%{background-position:0% 0%}100%{background-position:200% 0%}}
+.urgency-banner a{color:var(--white);text-decoration:underline;text-underline-offset:3px}
+.urgency-close{
+  position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:rgba(255,255,255,.7);font-size:1rem;cursor:pointer;
+  width:24px;height:24px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:var(--transition);
+}
+.urgency-close:hover{color:var(--white);background:rgba(255,255,255,.15)}
+body.has-banner .nav{top:36px}
+body.has-banner .hero{padding-top:156px}
+
+/* ════════════════════════════════════════════════════
+   HERO PARTICLE CANVAS
+════════════════════════════════════════════════════ */
+#particle-canvas{
+  position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
+}
+
+/* ════════════════════════════════════════════════════
+   TARGET AUDIENCE SECTION
+════════════════════════════════════════════════════ */
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.audience-col{
+  padding:32px;border-radius:var(--radius-lg);
+  border:1px solid rgba(255,255,255,.08);
+}
+.audience-col.yes-col{
+  background:rgba(74,222,128,.05);border-color:rgba(74,222,128,.2);
+}
+.audience-col.req-col{
+  background:rgba(0,212,255,.05);border-color:rgba(0,212,255,.15);
+}
+.audience-col-title{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--font-head);font-weight:800;font-size:1rem;margin-bottom:20px;
+}
+.audience-col.yes-col .audience-col-title{color:#4ade80}
+.audience-col.req-col .audience-col-title{color:var(--cyan)}
+.audience-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:.88rem;color:var(--gray3);line-height:1.55;
+}
+.audience-item:last-child{border-bottom:none}
+.aud-icon{flex-shrink:0;margin-top:2px}
+.yes-col .aud-icon{color:#4ade80}
+.req-col .aud-icon{color:var(--cyan)}
+
+/* ════════════════════════════════════════════════════
+   BEFORE / AFTER SECTION
+════════════════════════════════════════════════════ */
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch}
+.ba-col{border-radius:var(--radius-lg);overflow:hidden}
+.ba-col.before-col{background:rgba(227,6,19,.06);border:1px solid rgba(227,6,19,.2)}
+.ba-col.after-col{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.2)}
+.ba-header{
+  padding:16px 24px;font-family:var(--font-head);font-weight:800;font-size:.9rem;
+  display:flex;align-items:center;gap:8px;
+}
+.before-col .ba-header{background:rgba(227,6,19,.15);color:var(--red-light)}
+.after-col .ba-header{background:rgba(74,222,128,.15);color:#4ade80}
+.ba-items{padding:20px 24px;display:flex;flex-direction:column;gap:12px}
+.ba-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.85rem;color:var(--gray3);line-height:1.5;
+}
+.ba-vs{
+  display:flex;align-items:center;justify-content:center;width:56px;flex-shrink:0;
+  font-family:var(--font-head);font-weight:900;font-size:1.1rem;color:var(--gray2);
+}
+
+/* ════════════════════════════════════════════════════
+   OUTCOMES / "SẢN PHẨM MANG VỀ" SECTION
+════════════════════════════════════════════════════ */
+.outcomes-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:860px;margin:0 auto 40px}
+.outcome-card{
+  padding:32px;border-radius:var(--radius-lg);text-align:center;
+  border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden;
+}
+.outcome-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+}
+.outcome-card.primary::after{background:linear-gradient(90deg,var(--red),var(--red-light))}
+.outcome-card.secondary::after{background:linear-gradient(90deg,var(--cyan),#7C3AED)}
+.outcome-card.primary{background:rgba(227,6,19,.06)}
+.outcome-card.secondary{background:rgba(0,212,255,.04)}
+.outcome-num{
+  font-family:var(--font-head);font-size:4rem;font-weight:900;line-height:1;
+  margin-bottom:4px;
+}
+.outcome-card.primary .outcome-num{color:var(--red-light)}
+.outcome-card.secondary .outcome-num{color:var(--cyan)}
+.outcome-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2);margin-bottom:12px}
+.outcome-title{font-size:1rem;font-weight:800;color:var(--white);margin-bottom:8px}
+.outcome-desc{font-size:.82rem;color:var(--gray2);line-height:1.6}
+.outcome-total{
+  text-align:center;padding:20px;border-radius:var(--radius-md);
+  background:var(--surface2);border:1px solid rgba(255,255,255,.08);
+  max-width:460px;margin:0 auto;
+}
+.outcome-total-num{
+  font-family:var(--font-head);font-size:2.4rem;font-weight:900;
+  background:linear-gradient(135deg,var(--red),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ════════════════════════════════════════════════════
+   COUNTDOWN TIMER
+════════════════════════════════════════════════════ */
+.countdown-wrap{display:flex;gap:16px;justify-content:center;margin:32px 0}
+.countdown-unit{text-align:center;min-width:80px}
+.countdown-num{
+  font-family:var(--font-head);font-size:3rem;font-weight:900;line-height:1;
+  background:var(--surface);border:1px solid rgba(227,6,19,.3);
+  border-radius:var(--radius-md);padding:16px 12px;
+  box-shadow:0 0 30px rgba(227,6,19,.15);
+  color:var(--white);display:block;margin-bottom:8px;
+  transition:all .2s ease;
+}
+.countdown-label{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gray2)}
+.countdown-sep{
+  font-size:2.5rem;font-weight:900;color:var(--red);
+  display:flex;align-items:center;padding-bottom:28px;opacity:.7;
+}
+
+/* ════════════════════════════════════════════════════
+   SHARE BUTTONS
+════════════════════════════════════════════════════ */
+.share-row{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;
+}
+.share-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray2)}
+.share-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 16px;border-radius:var(--radius-pill);
+  font-size:.75rem;font-weight:700;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);color:var(--gray3);
+  transition:var(--transition);cursor:pointer;
+}
+.share-btn:hover{color:var(--white);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.1)}
+.share-btn.zalo{border-color:rgba(0,120,240,.35)}
+.share-btn.zalo:hover{color:#0078F0;border-color:#0078F0;background:rgba(0,120,240,.1)}
+.share-btn.copy-link:hover{color:var(--cyan);border-color:rgba(0,212,255,.4);background:rgba(0,212,255,.08)}
+.copied-tip{font-size:.72rem;color:#4ade80;display:none}
+.copied-tip.show{display:inline}
+
+/* ════════════════════════════════════════════════════
+   PROCESS / TIMELINE SECTION
+════════════════════════════════════════════════════ */
+.process-section{padding:100px 0;background:var(--surface)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;max-width:1100px;margin:0 auto}
+.timeline::before{
+  content:'';position:absolute;top:28px;left:calc(12.5%);right:calc(12.5%);
+  height:2px;background:linear-gradient(90deg,var(--red),rgba(227,6,19,.2));z-index:0;
+}
+.tl-item{text-align:center;padding:0 16px;position:relative}
+.tl-num{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  color:var(--white);font-family:var(--font-head);font-weight:900;font-size:1.4rem;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;position:relative;z-index:1;
+  box-shadow:0 0 0 4px var(--surface),0 0 0 6px rgba(227,6,19,.3),0 8px 24px rgba(227,6,19,.3);
+  transition:var(--transition);
+}
+.tl-item:hover .tl-num{transform:scale(1.1);box-shadow:0 0 0 4px var(--surface),0 0 0 8px rgba(227,6,19,.5),0 12px 32px rgba(227,6,19,.4)}
+.tl-title{font-family:var(--font-head);font-weight:800;font-size:.95rem;color:var(--white);margin-bottom:10px;line-height:1.3}
+.tl-desc{font-size:.8rem;color:var(--gray2);line-height:1.65}
+.tl-time{
+  display:inline-flex;align-items:center;gap:4px;
+  margin-top:12px;padding:4px 12px;border-radius:var(--radius-pill);
+  background:rgba(227,6,19,.1);border:1px solid rgba(227,6,19,.2);
+  font-size:.65rem;font-weight:700;color:var(--red-light);text-transform:uppercase;letter-spacing:.08em;
+  font-family:var(--font-mono);
+}
+
+/* ════════════════════════════════════════════════════
+   REGISTRATION FORM SECTION
+════════════════════════════════════════════════════ */
+.form-section{padding:100px 0;background:var(--black)}
+.form-wrap{
+  display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;
+  max-width:1100px;margin:0 auto;
+}
+.form-info{position:sticky;top:88px}
+.form-info-title{font-family:var(--font-head);font-size:2rem;font-weight:900;margin-bottom:16px;line-height:1.15}
+.form-info-sub{font-size:.9rem;color:var(--gray2);line-height:1.7;margin-bottom:32px}
+.form-perks{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.form-perk{
+  display:flex;align-items:center;gap:12px;
+  font-size:.85rem;color:var(--gray3);
+}
+.form-perk-icon{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.25);
+  display:flex;align-items:center;justify-content:center;color:#4ade80;
+}
+.form-contact-box{
+  padding:16px 20px;border-radius:var(--radius-md);
+  background:var(--surface);border:1px solid rgba(255,255,255,.08);
+}
+.form-contact-box p{font-size:.78rem;color:var(--gray2);margin-bottom:6px}
+.form-contact-box a{color:var(--cyan);font-weight:700;font-size:.9rem}
+
+/* Form card */
+.form-card{
+  background:var(--surface);border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--radius-xl);padding:40px;
+}
+.form-card-title{font-family:var(--font-head);font-size:1.4rem;font-weight:800;margin-bottom:6px;color:var(--white)}
+.form-card-sub{font-size:.82rem;color:var(--gray2);margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-label{
+  display:block;font-size:.78rem;font-weight:700;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--gray3);margin-bottom:8px;
+}
+.form-label span{color:var(--red-light);margin-left:2px}
+.form-input{
+  width:100%;padding:12px 16px;border-radius:var(--radius-md);
+  background:var(--surface2);border:1px solid rgba(255,255,255,.1);
+  color:var(--white);font-family:var(--font-body);font-size:.9rem;
+  transition:var(--transition);outline:none;
+}
+.form-input::placeholder{color:var(--gray2)}
+.form-input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(227,6,19,.12)}
+.form-input.has-error{border-color:#FF5252;box-shadow:0 0 0 3px rgba(255,82,82,.1)}
+.form-input.has-success{border-color:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.1)}
+select.form-input option{background:var(--dark);color:var(--white)}
+.form-error-msg{
+  font-size:.72rem;color:#FF7070;margin-top:5px;
+  display:none;align-items:center;gap:4px;
+}
+.form-error-msg.show{display:flex}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-check{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:.82rem;color:var(--gray3);line-height:1.5;cursor:pointer;
+  padding:14px;border-radius:var(--radius-md);
+  background:var(--surface2);border:1px solid rgba(255,255,255,.06);
+  transition:var(--transition);
+}
+.form-check:hover{border-color:rgba(227,6,19,.25)}
+.form-check input[type=checkbox]{
+  width:18px;height:18px;flex-shrink:0;margin-top:1px;
+  accent-color:var(--red);cursor:pointer;
+}
+.form-submit{
+  width:100%;padding:16px;border-radius:var(--radius-pill);
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  color:var(--white);font-family:var(--font-head);font-weight:800;font-size:1rem;
+  letter-spacing:.04em;border:none;cursor:pointer;margin-top:8px;
+  transition:var(--transition);box-shadow:0 4px 20px rgba(227,6,19,.4);
+}
+.form-submit:hover{transform:scale(1.02);box-shadow:0 8px 32px rgba(227,6,19,.55)}
+.form-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.form-submit.loading{pointer-events:none}
+.form-submit-sub{text-align:center;margin-top:10px;font-size:.72rem;color:var(--gray2)}
+/* Success state */
+.form-success{
+  display:none;text-align:center;padding:40px 24px;
+}
+.form-success.show{display:block}
+.form-success-icon{font-size:3.5rem;margin-bottom:16px}
+.form-success-title{font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:#4ade80;margin-bottom:8px}
+.form-success-sub{font-size:.9rem;color:var(--gray2);line-height:1.7}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════ */
+@media(max-width:900px){
+  .audience-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr;gap:16px}
+  .ba-vs{width:100%;height:40px;font-size:.85rem}
+  .outcomes-grid{grid-template-columns:1fr}
+  .countdown-wrap{gap:8px}
+  .countdown-num{font-size:2rem;padding:12px 8px;min-width:64px}
+  body.has-banner .hero{padding-top:136px}
+  .timeline{grid-template-columns:1fr 1fr;gap:32px}
+  .timeline::before{display:none}
+  .form-wrap{grid-template-columns:1fr;gap:40px}
+  .form-info{position:static}
+  .form-2col{grid-template-columns:1fr}
+}
+  .hero-visual{display:none}
+  .hero-ctas,.hero-proofs{justify-content:center}
+  .trust-stats{grid-template-columns:repeat(2,1fr);gap:24px}
+  .risk-grid{grid-template-columns:1fr}
+  .group-grid{grid-template-columns:repeat(2,1fr)}
+  .role-panel.active{grid-template-columns:1fr}
+  .curriculum-grid{grid-template-columns:1fr}
+  .code-section{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .nav-links{display:none}
+  .sticky-bar-text{display:none}
+}
+@media(max-width:600px){
+  .section{padding:72px 0}
+  .t-h1{font-size:2rem}
+  .trust-stats{grid-template-columns:repeat(2,1fr)}
+  .group-grid{grid-template-columns:1fr}
+  .role-tabs{flex-wrap:wrap}
+}
+</style>
+</head>
+<body class="has-banner">
+
+<!-- ════════ URGENCY BANNER ════════ -->
+<div class="urgency-banner" id="urgencyBanner" role="alert" aria-live="polite">
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  <span>⏰ Tài liệu nội bộ — Giới hạn nội bộ VTNet · Không phân phối ra ngoài</span>
+  <span style="opacity:.6">·</span>
+  <a href="#register">Đăng ký nhận ngay →</a>
+  <button class="urgency-close" onclick="closeBanner()" aria-label="Đóng thông báo">×</button>
+</div>
+<nav class="nav" id="nav" role="navigation" aria-label="Navigation chính">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" aria-label="Viettel Networks - Trang chủ">
+      <div class="nav-logo" aria-hidden="true">V</div>
+      <div class="nav-brandname">
+        VIETTEL NETWORKS
+        <span>BẢO MẬT TOÀN DIỆN 2026</span>
+      </div>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="#riskmap" class="nav-link" role="menuitem">Rủi ro</a>
+      <a href="#benefits" class="nav-link" role="menuitem">Vai trò</a>
+      <a href="#curriculum" class="nav-link" role="menuitem">Nội dung</a>
+      <a href="#process" class="nav-link" role="menuitem">Cách tham gia</a>
+      <a href="#faq" class="nav-link" role="menuitem">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:0989 000 564" class="nav-phone" aria-label="Hotline hỗ trợ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.54 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l1.36-1.36a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>0989 000 564</span>
+        <span style="font-size:.65rem;color:var(--gray2);display:block;line-height:1">Đ/c Tuệ — Hỗ trợ</span>
+      </a>
+      <a href="#form" class="btn btn-primary btn-sm">Đăng ký ngay</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════ [02] HERO ════════ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow" role="doc-subtitle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        CHƯƠNG TRÌNH ĐÀO TẠO NỘI BỘ — VIETTEL NETWORKS
+      </div>
+      <h1 class="t-h1 hero-title" id="hero-title">
+        <span class="grad-cyber">BẢO MẬT<br>TOÀN DIỆN</span><br>
+        <span style="font-size:55%;font-weight:500;color:rgba(255,255,255,0.7)">Khắc Phục Lỗ Hổng &amp; Lập Trình An Toàn</span>
+      </h1>
+      <p class="hero-sub">
+        Cẩm nang thực chiến cho <strong>Developer · SysAdmin · InfoSec</strong> —<br>
+        Không lý thuyết suông. Mỗi vai trò một hành động cụ thể.
+      </p>
+      <div class="hero-ctas">
+        <a href="#register" class="btn btn-primary btn-lg btn-pulse" aria-label="Đăng ký học ngay">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          Đăng ký học ngay
+        </a>
+        <a href="#curriculum" class="btn btn-outline btn-lg" aria-label="Xem nội dung chi tiết">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Xem nội dung
+        </a>
+      </div>
+      <div class="hero-proofs" role="list" aria-label="Điểm nổi bật chương trình">
+        <div class="hero-proof" role="listitem">
+          <span class="hero-proof-icon" aria-hidden="true">⚡</span>
+          10 slides tổng hợp
+        </div>
+        <div class="hero-proof" role="listitem">
+          <span class="hero-proof-icon" aria-hidden="true">🛡️</span>
+          4 nhóm lỗ hổng
+        </div>
+        <div class="hero-proof" role="listitem">
+          <span class="hero-proof-icon" aria-hidden="true">🏆</span>
+          Chuẩn OWASP
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-terminal" role="img" aria-label="Terminal bảo mật Tuệ họa">
+        <div class="terminal-bar">
+          <span class="terminal-dot r"></span>
+          <span class="terminal-dot y"></span>
+          <span class="terminal-dot g"></span>
+          <span class="terminal-title t-mono">security-audit.sh — VTNet 2026</span>
+        </div>
+        <div>
+          <span class="t-cyan">$</span> <span class="t-white">./run-security-check.py</span><br>
+          <span class="t-gray"># Scanning 4 vulnerability groups...</span><br>
+          <br>
+          <span class="t-red">❌  IAM:</span> <span class="t-yellow">IDOR detected — Backend auth missing</span><br>
+          <span class="t-red">❌  Injection:</span> <span class="t-yellow">SQLi via string concat</span><br>
+          <span class="t-red">❌  Infra:</span> <span class="t-yellow">SSH port 22 exposed to Internet</span><br>
+          <span class="t-red">❌  Config:</span> <span class="t-yellow">Debug mode ON in Production</span><br>
+          <br>
+          <span class="t-gray"># Applying fixes...</span><br>
+          <span class="t-green">✅  IDOR:</span> <span class="t-white">user ownership check added</span><br>
+          <span class="t-green">✅  SQLi:</span> <span class="t-white">Parameterized query applied</span><br>
+          <span class="t-green">✅  SSH:</span> <span class="t-white">moved behind VPN / Bastion</span><br>
+          <span class="t-green">✅  Config:</span> <span class="t-white">Debug=False, headers set</span><br>
+          <br>
+          <span class="t-cyan">$</span> <span class="t-white">Security score:</span> <span class="t-green">94/100</span> <span class="terminal-cursor"></span>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <span>🛡️</span> Chuẩn <span>OWASP Top 10</span> · VTNet 2026
+      </div>
+    </div>
+  </div>
+
+  <button class="hero-scroll" onclick="document.getElementById('trust').scrollIntoView({behavior:'smooth'})" aria-label="Cuộn xuống">
+    KHÁM PHÁ
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+</section>
+
+<!-- ════════ [03] TRUST BAR ════════ -->
+<section class="trust section-surface" id="trust" aria-label="Số liệu nổi bật">
+  <div class="container">
+    <div class="trust-stats" role="list" aria-label="Thống kê chương trình">
+      <div class="reveal" role="listitem">
+        <div class="stat-num grad-red" data-count="10" aria-label="10 Slides tổng hợp">0</div>
+        <div class="stat-label">Slides tổng hợp</div>
+      </div>
+      <div class="reveal" role="listitem">
+        <div class="stat-num grad-red" data-count="4" aria-label="4 Nhóm lỗ hổng">0</div>
+        <div class="stat-label">Nhóm lỗ hổng</div>
+      </div>
+      <div class="reveal" role="listitem">
+        <div class="stat-num grad-red" data-count="3" aria-label="3 Vai trò">0</div>
+        <div class="stat-label">Vai trò chuyên biệt</div>
+      </div>
+      <div class="reveal" role="listitem">
+        <div class="stat-num grad-red" data-count="6" aria-label="6 Case thực hành">0</div>
+        <div class="stat-label">Case thực hành</div>
+      </div>
+    </div>
+    <div class="trust-divider" aria-hidden="true"></div>
+    <div class="trust-tools-label">Công cụ &amp; Chuẩn mực áp dụng trong Cẩm nang</div>
+    <div class="trust-tools" role="list" aria-label="Công cụ bảo mật">
+      <div class="tool-badge reveal" role="listitem" title="Ngôn ngữ lập trình — Flask, Django, FastAPI">🐍 Python / Django</div>
+      <div class="tool-badge reveal" role="listitem" title="Ngôn ngữ lập trình — Express, Mongoose">⚙️ Node.js / Express</div>
+      <div class="tool-badge reveal" role="listitem" title="Chuẩn bảo mật ứng dụng web toàn cầu">🌐 OWASP Top 10</div>
+      <div class="tool-badge reveal" role="listitem" title="Static / Dynamic Application Security Testing">🔍 SAST / DAST</div>
+      <div class="tool-badge reveal" role="listitem" title="Security Information & Event Management / File Integrity Monitoring">📊 SIEM / FIM</div>
+      <div class="tool-badge reveal" role="listitem" title="Cloud Security Posture Management">☁️ CSPM / Cloud</div>
+      <div class="tool-badge reveal" role="listitem" title="Continuous Integration / Continuous Delivery Security">🔄 DevSecOps CI/CD</div>
+      <div class="tool-badge reveal" role="listitem" title="Parameterized Query, mongo-sanitize, werkzeug, Multer">🛡️ Secure Libraries</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [04] TARGET AUDIENCE ════════ -->
+<section class="section section-dark" id="audience" aria-labelledby="audience-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">01 — DÀNH CHO AI</div>
+      <h2 class="t-h2 sec-title" id="audience-title">Chương trình này<br><span class="grad-red">dành cho bạn?</span></h2>
+      <p class="sec-sub t-body">Tinh thần "thử nó xem sao" — không cần kinh nghiệm bảo mật chuyên sâu trước đó</p>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-col yes-col reveal">
+        <div class="audience-col-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          Bạn nên tham gia nếu...
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Bạn là <strong style="color:var(--white)">Developer Python / Node.js</strong> và muốn code an toàn hơn từ ngay lần commit tiếp theo</span>
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Bạn là <strong style="color:var(--white)">SysAdmin / DevOps</strong> chịu trách nhiệm vận hành hạ tầng, cloud, firewall nội bộ</span>
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Bạn là <strong style="color:var(--white)">InfoSec / Security Analyst</strong> cần tài liệu chuẩn OWASP để audit và báo cáo</span>
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Bạn là <strong style="color:var(--white)">Team Lead / Tech Manager</strong> muốn cả đội nói cùng một ngôn ngữ bảo mật</span>
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+          <span><strong style="color:var(--white)">CBCNV VTNet</strong> cần đáp ứng yêu cầu KNL về bảo mật thông tin năm 2026</span>
+        </div>
+      </div>
+
+      <div class="audience-col req-col reveal">
+        <div class="audience-col-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="16" x2="16" y2="16"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="8" y1="16" x2="8.01" y2="16"/></svg>
+          Yêu cầu đầu vào
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg>
+          <span>Biết sử dụng máy tính cơ bản — đọc tài liệu, mở trình duyệt, copy-paste code</span>
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          <span>Có hiểu biết cơ bản về lập trình (bất kỳ ngôn ngữ nào) hoặc quản trị hệ thống</span>
+        </div>
+        <div class="audience-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span>Tinh thần cởi mở — <em style="color:var(--white)">"thấy lạ thì hỏi, thấy sai thì sửa"</em></span>
+        </div>
+        <div class="audience-item" style="background:rgba(0,212,255,.06);border-radius:var(--radius-sm);padding:12px;border-bottom:none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          <span style="color:var(--gray2)"><strong style="color:var(--white)">Không yêu cầu</strong> kinh nghiệm bảo mật, kiến thức pentest hay chứng chỉ CEH/CISSP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [04b] BEFORE / AFTER ════════ -->
+<section class="section section-surface2" aria-labelledby="ba-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">TRƯỚC &amp; SAU KHI ÁP DỤNG</div>
+      <h2 class="t-h2 sec-title" id="ba-title">Sự khác biệt<br><span class="grad-red">rõ ràng ngay tuần sau</span></h2>
+      <p class="sec-sub t-body">Không lý thuyết — đây là thay đổi cụ thể bạn sẽ thấy sau khi đọc cẩm nang</p>
+    </div>
+
+    <div class="ba-grid reveal">
+      <div class="ba-col before-col">
+        <div class="ba-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> TRƯỚC — Cách làm cũ
+        </div>
+        <div class="ba-items">
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>Nối chuỗi SQL trực tiếp với input user — dễ bị SQLi</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>Hardcode API key / secret trong source code, đẩy lên Git</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>Kiểm tra phân quyền chỉ ở Frontend, Backend không validate lại</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>SSH port 22 mở thẳng ra Internet — hacker dò mật khẩu liên tục</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>Debug mode ON trên Production — lộ stack trace, cấu hình nội bộ</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>Không có checklist — deploy xong mới phát hiện lỗi bảo mật</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-vs" aria-hidden="true">VS</div>
+
+      <div class="ba-col after-col">
+        <div class="ba-header">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> SAU — Chuẩn OWASP
+        </div>
+        <div class="ba-items">
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Parameterized Query — DB tự escape, không thể inject</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Dùng .env file + gitignore — secret không bao giờ lên repo</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Backend luôn verify ownership (IDOR fixed) — mọi request đều được kiểm tra</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>SSH qua VPN / Bastion Host — không ai dò được từ ngoài Internet</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Debug=False + Security Headers (CSP, HSTS) — Production an toàn</span>
+          </div>
+          <div class="ba-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Checklist 4 nhóm rà soát trước mỗi deploy — bắt lỗi từ sớm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [04c] OUTCOMES ════════ -->
+<section class="section section-dark" id="outcomes" aria-labelledby="outcomes-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">SẢN PHẨM MANG VỀ</div>
+      <h2 class="t-h2 sec-title" id="outcomes-title">Bạn sẽ có gì<br><span class="grad-red">sau khi hoàn thành?</span></h2>
+      <p class="sec-sub t-body">Không học xong rồi quên — mỗi tài liệu đều là công cụ dùng được ngay trong công việc</p>
+    </div>
+
+    <div class="outcomes-grid">
+      <div class="outcome-card primary reveal">
+        <div class="outcome-num" aria-hidden="true">01</div>
+        <div class="outcome-label">Tài liệu chính</div>
+        <h3 class="outcome-title">Cẩm nang Bảo Mật Toàn Diện</h3>
+        <p class="outcome-desc">10 slides tổng hợp đầy đủ theo vai trò — mỗi slide đều có hướng dẫn hành động cụ thể cho Dev, SysAdmin và InfoSec</p>
+      </div>
+      <div class="outcome-card secondary reveal">
+        <div class="outcome-num" aria-hidden="true">02</div>
+        <div class="outcome-label">Tài liệu bổ sung</div>
+        <h3 class="outcome-title">Bộ Code Snippet Python &amp; Node.js</h3>
+        <p class="outcome-desc">6 case thực hành với code mẫu ❌ Sai / ✅ Đúng sẵn sàng copy vào dự án — chuẩn OWASP Top 10</p>
+      </div>
+    </div>
+
+    <div class="outcome-total reveal">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);margin-bottom:6px">Tổng kết</div>
+      <div class="outcome-total-num">2 tài liệu + Checklist</div>
+      <p style="font-size:.82rem;color:var(--gray2);margin-top:8px">Đọc xong là làm được việc thật — không cần đọc lại từ đầu</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [05] RISK MAP ════════ -->
+<section class="section section-dark" id="riskmap" aria-labelledby="riskmap-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">01 — BẢN ĐỒ RỦI RO</div>
+      <h2 class="t-h2 sec-title" id="riskmap-title">Lỗ hổng &amp; Mức độ<br><span class="grad-red">Nghiêm trọng</span></h2>
+      <p class="sec-sub t-body">Phân loại từ báo cáo thực tế — biết nguy cơ để ưu tiên khắc phục đúng hướng</p>
+    </div>
+
+    <div class="risk-grid" role="list" aria-label="Bảng phân loại rủi ro">
+      <div class="risk-card reveal" role="listitem">
+        <div class="risk-level critical" role="img" aria-label="Mức độ nghiêm trọng">🔴 NGHIÊM TRỌNG (RCE)</div>
+        <h3 class="t-h3" style="margin-bottom:8px;color:var(--white)">Chiếm quyền hệ thống</h3>
+        <p style="font-size:.82rem;color:var(--gray2);margin-bottom:12px">Lỗ hổng có thể dẫn đến Remote Code Execution — nguy cơ tối đa</p>
+        <div class="risk-items" role="list" aria-label="Danh sách lỗ hổng nghiêm trọng">
+          <span class="risk-tag" role="listitem">Injection (SQL/NoSQL)</span>
+          <span class="risk-tag" role="listitem">File Upload Webshell</span>
+          <span class="risk-tag" role="listitem">SSRF</span>
+          <span class="risk-tag" role="listitem">Deserialization</span>
+          <span class="risk-tag" role="listitem">Broken Auth</span>
+        </div>
+      </div>
+      <div class="risk-card reveal" role="listitem">
+        <div class="risk-level high" role="img" aria-label="Mức độ cao">🟠 CAO</div>
+        <h3 class="t-h3" style="margin-bottom:8px;color:var(--white)">Rủi ro cao</h3>
+        <p style="font-size:.82rem;color:var(--gray2);margin-bottom:12px">Ảnh hưởng nghiêm trọng đến dữ liệu và quyền kiểm soát</p>
+        <div class="risk-items" role="list" aria-label="Danh sách lỗ hổng cao">
+          <span class="risk-tag" role="listitem">IDOR</span>
+          <span class="risk-tag" role="listitem">XSS</span>
+          <span class="risk-tag" role="listitem">Path Traversal/LFI</span>
+          <span class="risk-tag" role="listitem">Sensitive Data</span>
+          <span class="risk-tag" role="listitem">Mass Assignment</span>
+        </div>
+      </div>
+      <div class="risk-card reveal" role="listitem">
+        <div class="risk-level medium" role="img" aria-label="Mức độ trung bình">🟡 TRUNG BÌNH</div>
+        <h3 class="t-h3" style="margin-bottom:8px;color:var(--white)">Cấu hình &amp; cài đặt</h3>
+        <p style="font-size:.82rem;color:var(--gray2);margin-bottom:12px">Điểm yếu cấu hình thường bị bỏ qua nhưng dễ khai thác</p>
+        <div class="risk-items" role="list" aria-label="Danh sách lỗi cấu hình">
+          <span class="risk-tag" role="listitem">Debug Mode ON</span>
+          <span class="risk-tag" role="listitem">Thiếu Rate-limit</span>
+          <span class="risk-tag" role="listitem">Thiếu Security Headers</span>
+          <span class="risk-tag" role="listitem">Log lộ PII</span>
+        </div>
+      </div>
+      <div class="risk-card reveal" role="listitem">
+        <div class="risk-level monitor" role="img" aria-label="Mức độ cần theo dõi">🟢 CẦN THEO DÕI</div>
+        <h3 class="t-h3" style="margin-bottom:8px;color:var(--white)">Hạ tầng &amp; thành phần</h3>
+        <p style="font-size:.82rem;color:var(--gray2);margin-bottom:12px">Nguy cơ tiềm ẩn cần kiểm tra và cập nhật thường xuyên</p>
+        <div class="risk-items" role="list" aria-label="Danh sách nguy cơ theo dõi">
+          <span class="risk-tag" role="listitem">CVE chưa vá</span>
+          <span class="risk-tag" role="listitem">Public S3 Bucket</span>
+          <span class="risk-tag" role="listitem">Firewall yếu</span>
+          <span class="risk-tag" role="listitem">Port mở</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px">
+      <p class="t-small" style="text-align:center;margin-bottom:20px;text-transform:uppercase;letter-spacing:.12em;color:var(--gray2)">4 nhóm lỗ hổng chính</p>
+      <div class="group-grid" role="list" aria-label="4 nhóm lỗ hổng">
+        <div class="group-card reveal" role="listitem">
+          <div class="group-icon" aria-hidden="true">🔐</div>
+          <div class="group-title">Nhóm 1 — IAM</div>
+          <div class="group-count">Broken Auth · IDOR · LPE · Hardcode</div>
+        </div>
+        <div class="group-card reveal" role="listitem">
+          <div class="group-icon" aria-hidden="true">💉</div>
+          <div class="group-title">Nhóm 2 — Đầu vào</div>
+          <div class="group-count">SQL/NoSQL · XSS · CSRF · File Upload</div>
+        </div>
+        <div class="group-card reveal" role="listitem">
+          <div class="group-icon" aria-hidden="true">☁️</div>
+          <div class="group-title">Nhóm 3 — Hạ tầng</div>
+          <div class="group-count">Port lộ · Bucket · CVE · SSRF</div>
+        </div>
+        <div class="group-card reveal" role="listitem">
+          <div class="group-icon" aria-hidden="true">⚙️</div>
+          <div class="group-title">Nhóm 4 — Cấu hình</div>
+          <div class="group-count">Debug · Rate-limit · Log · Backdoor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [05] BENEFITS BY ROLE ════════ -->
+<section class="section section-surface" id="benefits" aria-labelledby="benefits-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">02 — LỢI ÍCH THEO VAI TRÒ</div>
+      <h2 class="t-h2 sec-title" id="benefits-title">Mỗi vai trò<br><span class="grad-red">một hành động cụ thể</span></h2>
+      <p class="sec-sub t-body">Không chung chung. Chọn vai trò của bạn để xem hướng dẫn thiết thực nhất.</p>
+    </div>
+
+    <div class="role-tabs" role="tablist" aria-label="Chọn vai trò">
+      <button class="role-tab active" onclick="switchRole('dev')" role="tab" aria-selected="true" aria-controls="panel-dev" id="tab-dev">👨‍💻 Developer</button>
+      <button class="role-tab" onclick="switchRole('sys')" role="tab" aria-selected="false" aria-controls="panel-sys" id="tab-sys">🛠 SysAdmin</button>
+      <button class="role-tab" onclick="switchRole('sec')" role="tab" aria-selected="false" aria-controls="panel-sec" id="tab-sec">🛡 InfoSec</button>
+    </div>
+
+    <!-- Dev panel -->
+    <div class="role-panel active" id="panel-dev" role="tabpanel" aria-labelledby="tab-dev">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">💉</div>
+        <h3 class="benefit-title">Chống Injection &amp; XSS</h3>
+        <p class="benefit-desc">Dùng <strong style="color:var(--white)">Parameterized Query</strong> / ORM — không bao giờ nối chuỗi SQL/NoSQL. Validate và escape HTML output chống XSS. Dùng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">bleach</code> (Python) hoặc <code style="font-size:.78em;color:var(--cyan);font-family:monospace">DOMPurify + Helmet CSP</code> (Node.js).</p>
+        <span class="benefit-tag">CASE 1 — NGHIÊM TRỌNG · RCE</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">📁</div>
+        <h3 class="benefit-title">File Upload An toàn</h3>
+        <p class="benefit-desc">Kiểm tra <strong style="color:var(--white)">Magic Bytes</strong> — không chỉ extension. Đặt tên file bằng UUID ngẫu nhiên. Lưu ngoài webroot, thư mục <strong style="color:var(--red-light)">no-execute</strong>. Dùng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">python-magic</code> hoặc <code style="font-size:.78em;color:var(--cyan);font-family:monospace">file-type</code> (npm) để verify.</p>
+        <span class="benefit-tag">CASE 2 — NGHIÊM TRỌNG · Webshell RCE</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔐</div>
+        <h3 class="benefit-title">Phân quyền &amp; IDOR</h3>
+        <p class="benefit-desc">Luôn verify <code style="font-size:.78em;color:var(--cyan);font-family:monospace">user_id == owner_id</code> tại Backend — KHÔNG chỉ ẩn ở Frontend. Account Lockout sau N lần đăng nhập sai. JWT: khai báo bắt buộc <code style="font-size:.78em;color:var(--cyan);font-family:monospace">algorithms=['HS256']</code>. Token lưu HTTPOnly Cookie.</p>
+        <span class="benefit-tag">CASE 3 — CAO · Broken Auth</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔑</div>
+        <h3 class="benefit-title">Secret &amp; Dữ liệu Nhạy cảm</h3>
+        <p class="benefit-desc"><strong style="color:var(--red-light)">KHÔNG hardcode</strong> API key / password / token trong source code. Dùng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">.env</code> + thêm vào <code style="font-size:.78em;color:var(--cyan);font-family:monospace">.gitignore</code>. API Response: lọc field qua Serializer (Django/DRF), Pydantic (FastAPI) hoặc <code style="font-size:.78em;color:var(--cyan);font-family:monospace">.select()</code> (Mongoose). Mask PII trong log.</p>
+        <span class="benefit-tag">CASE 4 — Sensitive Data Exposure</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">⚡</div>
+        <h3 class="benefit-title">API Logic &amp; Rate-limit</h3>
+        <p class="benefit-desc">Chống <strong style="color:var(--white)">Mass Assignment</strong>: destructure hoặc Allow-list field — không dùng thẳng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">req.body</code>. Bắt buộc <strong style="color:var(--white)">Rate-limiting</strong> mọi API public bằng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">express-rate-limit</code> / <code style="font-size:.78em;color:var(--cyan);font-family:monospace">flask-limiter</code>. Chặn replay OTP/coupon bằng nonce.</p>
+        <span class="benefit-tag">CASE 5 — Logic Flaw · DoS</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🚫</div>
+        <h3 class="benefit-title">SSRF &amp; Deserialization</h3>
+        <p class="benefit-desc"><strong style="color:var(--red-light)">CẤM tuyệt đối</strong> <code style="font-size:.78em;color:var(--cyan);font-family:monospace">eval()</code>, <code style="font-size:.78em;color:var(--cyan);font-family:monospace">exec()</code>, <code style="font-size:.78em;color:var(--cyan);font-family:monospace">pickle.loads()</code> với user input — dùng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">json.loads()</code> / <code style="font-size:.78em;color:var(--cyan);font-family:monospace">JSON.parse()</code>. SSRF: Allow-list domain, chặn Private IP (<code style="font-size:.78em;color:var(--cyan);font-family:monospace">10.x</code>, <code style="font-size:.78em;color:var(--cyan);font-family:monospace">127.0.0.1</code>, <code style="font-size:.78em;color:var(--cyan);font-family:monospace">169.254.169.254</code>).</p>
+        <span class="benefit-tag">CASE 6 — NGHIÊM TRỌNG · RCE</span>
+      </div>
+    </div>
+
+    <!-- SysAdmin panel -->
+    <div class="role-panel" id="panel-sys" role="tabpanel" aria-labelledby="tab-sys">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔒</div>
+        <h3 class="benefit-title">Đóng Cổng Quản Trị</h3>
+        <p class="benefit-desc">Đóng hoàn toàn <strong style="color:var(--red-light)">SSH (22), RDP (3389), Docker API (2376), Redis (6379), Zookeeper (2181)</strong> ra Internet. Chỉ cho phép kết nối qua <strong style="color:var(--white)">VPN nội bộ hoặc Bastion Host</strong> được xác thực. Dùng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">iptables/nftables</code> để chặn Egress bất thường.</p>
+        <span class="benefit-tag">NHÓM 3 — HẠ TẦNG · NGHIÊM TRỌNG</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">☁️</div>
+        <h3 class="benefit-title">Bảo mật Cloud &amp; S3</h3>
+        <p class="benefit-desc">Kiểm tra và tắt <strong style="color:var(--red-light)">Public Read/Write</strong> trên S3/GCS/Azure Blob ngay lập tức. IAM Cloud: <strong style="color:var(--white)">Least Privilege</strong> — không cấp quyền Admin cho service không cần. Bật <strong style="color:var(--white)">CSPM</strong> tự động phát hiện cấu hình sai.</p>
+        <span class="benefit-tag">NHÓM 3 — CLOUD · Lộ dữ liệu</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🩹</div>
+        <h3 class="benefit-title">Patch CVE Kịp thời</h3>
+        <p class="benefit-desc">Cập nhật OS, Middleware, thư viện ưu tiên CVE mức <strong style="color:var(--red-light)">Critical/High</strong> trong vòng 72h. Theo dõi <strong style="color:var(--white)">Log4j, OpenSSL, Struts, PHP</strong> — các component RCE phổ biến nhất. Dùng <code style="font-size:.78em;color:var(--cyan);font-family:monospace">npm audit</code> / <code style="font-size:.78em;color:var(--cyan);font-family:monospace">pip-audit</code> tự động trong CI.</p>
+        <span class="benefit-tag">NHÓM 3 — CVE · RCE</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🛡️</div>
+        <h3 class="benefit-title">Security Headers &amp; TLS</h3>
+        <p class="benefit-desc">Cấu hình bắt buộc trên Nginx/Apache/IIS: <code style="font-size:.78em;color:var(--cyan);font-family:monospace">Content-Security-Policy</code>, <code style="font-size:.78em;color:var(--cyan);font-family:monospace">HSTS</code>, <code style="font-size:.78em;color:var(--cyan);font-family:monospace">X-Frame-Options: DENY</code>, <code style="font-size:.78em;color:var(--cyan);font-family:monospace">X-Content-Type-Options: nosniff</code>. Vô hiệu hoá <strong style="color:var(--red-light)">TLS 1.0/1.1</strong> và Weak Cipher Suite.</p>
+        <span class="benefit-tag">NHÓM 4 — CONFIG · HTTPS</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔍</div>
+        <h3 class="benefit-title">File Integrity &amp; Threat Hunting</h3>
+        <p class="benefit-desc"><strong style="color:var(--white)">FIM (File Integrity Monitoring)</strong> phát hiện thay đổi bất thường trên binary hệ thống, webroot, cron job. Giám sát tiến trình lạ chạy quyền root, kernel module không rõ nguồn gốc (<strong style="color:var(--red-light)">BPFDoor</strong>). Tắt hoàn toàn <strong style="color:var(--white)">Debug mode &amp; Directory Listing</strong> trên Production.</p>
+        <span class="benefit-tag">NHÓM 4 — Backdoor · FIM</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔑</div>
+        <h3 class="benefit-title">Đổi Mật khẩu Mặc định</h3>
+        <p class="benefit-desc">Đổi ngay mật khẩu mặc định của <strong style="color:var(--red-light)">tất cả dịch vụ</strong>: OS, Database (MySQL root, PostgreSQL postgres), Grafana (admin/admin), Kibana, Router/Switch. Kiểm tra Setuid binary tránh leo thang đặc quyền (LPE). App kết nối DB không dùng tài khoản <code style="font-size:.78em;color:var(--cyan);font-family:monospace">root/SA</code>.</p>
+        <span class="benefit-tag">NHÓM 1 — IAM · LPE</span>
+      </div>
+    </div>
+
+    <!-- InfoSec panel -->
+    <div class="role-panel" id="panel-sec" role="tabpanel" aria-labelledby="tab-sec">
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">📊</div>
+        <h3 class="benefit-title">SIEM Tập trung &amp; Alert</h3>
+        <p class="benefit-desc">Thu log từ <strong style="color:var(--white)">mọi server, firewall, WAF</strong> về SIEM tập trung (ELK, Splunk, QRadar). Cấu hình alert tự động: rà quét mật khẩu brute-force, thay đổi rule firewall bất thường, đăng nhập ngoài giờ từ IP không thuộc danh sách. Retention log tối thiểu <strong style="color:var(--white)">90 ngày</strong>.</p>
+        <span class="benefit-tag">NHÓM 4 — SIEM · Giám sát</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔭</div>
+        <h3 class="benefit-title">CSPM &amp; Port Scan Định kỳ</h3>
+        <p class="benefit-desc"><strong style="color:var(--white)">Cloud Security Posture Management</strong> tự động phát hiện S3 Bucket public, IAM role thừa quyền, Security Group mở rộng. Port scan định kỳ (<code style="font-size:.78em;color:var(--cyan);font-family:monospace">nmap -sV</code>) toàn bộ dải IP public — phát hiện service "quên đóng" sau mỗi deployment.</p>
+        <span class="benefit-tag">NHÓM 3 — CLOUD · Audit</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔄</div>
+        <h3 class="benefit-title">DevSecOps CI/CD Pipeline</h3>
+        <p class="benefit-desc">Tích hợp <strong style="color:var(--white)">SAST</strong> (Semgrep, SonarQube — phân tích mã tĩnh) và <strong style="color:var(--white)">DAST</strong> (OWASP ZAP — kiểm tra động) vào pipeline CI/CD. Build thất bại nếu phát hiện CVE Critical. Secret scanning tự động ngăn commit chứa key/token.</p>
+        <span class="benefit-tag">DEVSECOOPS · CI/CD</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🔐</div>
+        <h3 class="benefit-title">Audit SSO, MFA &amp; Token</h3>
+        <p class="benefit-desc">Audit định kỳ hệ thống <strong style="color:var(--white)">SSO (Single Sign-On)</strong> và cấu hình MFA toàn tổ chức. Quét token / API key bị lộ trên <strong style="color:var(--white)">GitHub/GitLab public repository</strong> bằng GitLeaks, TruffleHog. Review quyền tài khoản privileged mỗi quý.</p>
+        <span class="benefit-tag">NHÓM 1 — IAM · Token Leak</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🎯</div>
+        <h3 class="benefit-title">Pentest &amp; Vulnerability Assessment</h3>
+        <p class="benefit-desc">Lập kế hoạch <strong style="color:var(--white)">Vulnerability Assessment</strong> định kỳ theo chuẩn OWASP Top 10. Phân loại lỗ hổng theo mức độ (Critical/High/Medium/Low) và SLA khắc phục. Báo cáo kèm PoC (Proof of Concept) để Dev/SysAdmin tái hiện và fix.</p>
+        <span class="benefit-tag">PENTEST · VA · OWASP</span>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="benefit-icon" aria-hidden="true">🤖</div>
+        <h3 class="benefit-title">AI trong Bảo mật — Giới hạn</h3>
+        <p class="benefit-desc"><strong style="color:#4ade80">ĐƯỢC PHÉP:</strong> Dùng AI rà soát mã tĩnh, phân tích luồng dữ liệu, phát hiện Injection/Logic Flaw sớm trong review. <strong style="color:var(--red-light)">NGHIÊM CẤM:</strong> Dùng AI tấn công (mô phỏng hoặc thực tế) vào hệ thống đang có khách hàng thật hoặc môi trường Production.</p>
+        <span class="benefit-tag">AI · Đạo đức · Tuân thủ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [06] CURRICULUM ════════ -->
+<section class="section section-dark" id="curriculum" aria-labelledby="curriculum-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">03 — NỘI DUNG CHƯƠNG TRÌNH</div>
+      <h2 class="t-h2 sec-title" id="curriculum-title">8 chủ đề<br><span class="grad-red">từ tổng quan đến thực chiến</span></h2>
+      <p class="sec-sub t-body">Lộ trình học từ bản đồ rủi ro đến checklist pre-release — không bỏ sót điểm nào</p>
+    </div>
+
+    <div class="curriculum-grid" role="list" aria-label="Các phần nội dung">
+      <div class="curr-card reveal" role="listitem">
+        <div class="curr-num grad-red" aria-hidden="true">01</div>
+        <h3 class="curr-title">Bản đồ Lỗ hổng &amp; Rủi ro</h3>
+        <p class="curr-sub">Tổng quan — Phân loại theo mức độ nghiêm trọng</p>
+        <div class="curr-items" role="list">
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Risk Matrix: Nghiêm trọng → Cao → Trung bình</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>4 nhóm lỗ hổng IAM / Đầu vào / Hạ tầng / Config</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Lỗi thực tế từ báo cáo Viettel Networks 2024–2026</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>CVSS score &amp; ưu tiên khắc phục theo tác động kinh doanh</div>
+        </div>
+        <span class="curr-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg> Slide 3</span>
+      </div>
+
+      <div class="curr-card reveal" role="listitem">
+        <div class="curr-num grad-red" aria-hidden="true">02</div>
+        <h3 class="curr-title">Quản lý Xác thực &amp; Phân quyền (IAM)</h3>
+        <p class="curr-sub">Xử lý theo từng vai trò Dev / SysAdmin / InfoSec</p>
+        <div class="curr-items" role="list">
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>IDOR: Kiểm tra ownership tại Backend</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Least Privilege, Account Lockout, Hardcode</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Audit SSO, MFA, token rò rỉ</div>
+        </div>
+        <span class="curr-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Slide 4</span>
+      </div>
+
+      <div class="curr-card reveal" role="listitem">
+        <div class="curr-num grad-red" aria-hidden="true">03</div>
+        <h3 class="curr-title">An toàn Mã nguồn</h3>
+        <p class="curr-sub">Injection · XSS · File Upload · Path Traversal</p>
+        <div class="curr-items" role="list">
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Parameterized Query Python &amp; Node.js</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Magic Bytes · Werkzeug · Multer limits</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>SSRF Allow-list · cấm 169.254.169.254</div>
+        </div>
+        <span class="curr-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Slides 5–6</span>
+      </div>
+
+      <div class="curr-card reveal" role="listitem">
+        <div class="curr-num grad-red" aria-hidden="true">04</div>
+        <h3 class="curr-title">Bảo vệ Hạ tầng &amp; Cloud</h3>
+        <p class="curr-sub">Port mở · S3/GCS · CVE · SSRF · Deserialization</p>
+        <div class="curr-items" role="list">
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Đóng port quản trị · VPN / Bastion</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>CSPM · npm audit · pip check CVE</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>CẤM eval(), pickle.loads() với user input</div>
+        </div>
+        <span class="curr-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg> Slide 7</span>
+      </div>
+
+      <div class="curr-card reveal" role="listitem">
+        <div class="curr-num grad-red" aria-hidden="true">05</div>
+        <h3 class="curr-title">Cấu hình &amp; Giám sát</h3>
+        <p class="curr-sub">SIEM · FIM · Rate-limit · DevSecOps CI/CD</p>
+        <div class="curr-items" role="list">
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Tắt Debug · Security Headers (CSP, HSTS)</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>FIM phát hiện Backdoor / BPFDoor</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>SAST + DAST tích hợp CI/CD pipeline</div>
+        </div>
+        <span class="curr-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Slide 8</span>
+      </div>
+
+      <div class="curr-card reveal" role="listitem">
+        <div class="curr-num grad-red" aria-hidden="true">06</div>
+        <h3 class="curr-title">Quy tắc 3 KHÔNG &amp; Checklist</h3>
+        <p class="curr-sub">Pre-release Security Checklist + AI trong Bảo mật</p>
+        <div class="curr-items" role="list">
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>KHÔNG tin đầu vào · KHÔNG quyền cao · KHÔNG nối chuỗi</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>Checklist 4 nhóm: Auth · File · API · Config</div>
+          <div class="curr-item" role="listitem"><span class="curr-item-dot" aria-hidden="true"></span>AI: ĐƯỢC rà soát mã · CẤM tấn công hệ thống thật</div>
+        </div>
+        <span class="curr-badge"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg> Slide 9</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [07] SECURE CODING ════════ -->
+<section class="section section-surface2" aria-labelledby="coding-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">04 — SECURE CODING THỰC HÀNH</div>
+      <h2 class="t-h2 sec-title" id="coding-title">Code mẫu<br><span class="grad-red">❌ Sai vs ✅ Đúng</span></h2>
+      <p class="sec-sub t-body">Đối chiếu trực tiếp Python và Node.js — áp dụng ngay vào dự án thực tế</p>
+    </div>
+    <div class="code-section">
+      <div>
+        <div class="code-lang-tabs" role="tablist" aria-label="Chọn ngôn ngữ">
+          <div class="code-tab active" onclick="switchCode('py')" role="tab" aria-selected="true" aria-controls="code-py" id="ctab-py">🐍 Python</div>
+          <div class="code-tab" onclick="switchCode('js')" role="tab" aria-selected="false" aria-controls="code-js" id="ctab-js">⚙️ Node.js</div>
+        </div>
+
+        <!-- Python panel -->
+        <div class="code-panel active" id="code-py" role="tabpanel" aria-labelledby="ctab-py">
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots" aria-hidden="true">
+                <div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div>
+              </div>
+              <div class="code-lang-label">Python (Flask / Django / FastAPI)</div>
+            </div>
+            <div class="code-body">
+              <div class="code-bad">
+                <div class="code-label">❌ SQL Injection — KHÔNG làm thế này</div>
+<span class="cm"># String concat — hacker inject được ngay</span>
+<span class="fn">cursor</span>.<span class="fn">execute</span>(<span class="str">"SELECT * FROM users WHERE username = '"</span> + <span class="var">username</span> + <span class="str">"'"</span>)
+              </div>
+              <div class="code-good">
+                <div class="code-label">✅ Parameterized Query — Luôn làm thế này</div>
+<span class="cm"># Parameterized — DB tự escape, an toàn hoàn toàn</span>
+<span class="fn">cursor</span>.<span class="fn">execute</span>(<span class="str">"SELECT * FROM users WHERE username = %s"</span>, (<span class="var">username</span>,))
+              </div>
+              <div class="code-bad" style="margin-top:16px">
+                <div class="code-label">❌ IDOR — KHÔNG check ownership</div>
+<span class="var">Order</span>.<span class="fn">objects</span>.<span class="fn">get</span>(<span class="kw">id</span>=<span class="var">request</span>.<span class="var">GET</span>[<span class="str">'order_id'</span>])
+              </div>
+              <div class="code-good">
+                <div class="code-label">✅ IDOR Fixed — Luôn kèm điều kiện user</div>
+<span class="var">Order</span>.<span class="fn">objects</span>.<span class="fn">get</span>(<span class="kw">id</span>=<span class="var">request</span>.<span class="var">GET</span>[<span class="str">'order_id'</span>], <span class="kw">user</span>=<span class="var">request</span>.<span class="var">user</span>)
+              </div>
+              <div class="code-bad" style="margin-top:16px">
+                <div class="code-label">❌ Hardcode Secret — KHÔNG bao giờ</div>
+<span class="var">SECRET_KEY</span> = <span class="str">"abc123hardcoded"</span>  <span class="cm"># Commit lên git → lộ ngay</span>
+              </div>
+              <div class="code-good">
+                <div class="code-label">✅ Env Variable — Đây là cách đúng</div>
+<span class="kw">import</span> <span class="var">os</span>
+<span class="var">SECRET_KEY</span> = <span class="fn">os</span>.<span class="fn">environ</span>.<span class="fn">get</span>(<span class="str">'SECRET_KEY'</span>)  <span class="cm"># Từ .env</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node.js panel -->
+        <div class="code-panel" id="code-js" role="tabpanel" aria-labelledby="ctab-js">
+          <div class="code-block">
+            <div class="code-header">
+              <div class="code-dots" aria-hidden="true">
+                <div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div>
+              </div>
+              <div class="code-lang-label">Node.js (Express / Mongoose)</div>
+            </div>
+            <div class="code-body">
+              <div class="code-bad">
+                <div class="code-label">❌ NoSQL Injection — KHÔNG truyền thẳng object</div>
+<span class="cm">// Hacker gửi: {"username": {"$ne": null}}</span>
+<span class="var">Model</span>.<span class="fn">find</span>({ <span class="kw">username</span>: <span class="var">req</span>.<span class="var">body</span>.<span class="var">username</span> })
+              </div>
+              <div class="code-good">
+                <div class="code-label">✅ Ép kiểu + mongo-sanitize</div>
+<span class="kw">import</span> <span class="fn">sanitize</span> <span class="kw">from</span> <span class="str">'mongo-sanitize'</span>
+<span class="var">Model</span>.<span class="fn">find</span>({ <span class="kw">username</span>: <span class="fn">String</span>(<span class="fn">sanitize</span>(<span class="var">req</span>.<span class="var">body</span>.<span class="var">username</span>)) })
+              </div>
+              <div class="code-bad" style="margin-top:16px">
+                <div class="code-label">❌ Mass Assignment — Nguy hiểm</div>
+<span class="cm">// Hacker gửi is_admin=true trong body</span>
+<span class="kw">await</span> <span class="var">User</span>.<span class="fn">findByIdAndUpdate</span>(<span class="var">id</span>, <span class="var">req</span>.<span class="var">body</span>)
+              </div>
+              <div class="code-good">
+                <div class="code-label">✅ Allow-list — Chỉ cho phép field cụ thể</div>
+<span class="kw">const</span> { <span class="var">name</span>, <span class="var">email</span> } = <span class="var">req</span>.<span class="var">body</span>  <span class="cm">// Destructuring</span>
+<span class="kw">await</span> <span class="var">User</span>.<span class="fn">findByIdAndUpdate</span>(<span class="var">id</span>, { <span class="var">name</span>, <span class="var">email</span> })
+              </div>
+              <div class="code-bad" style="margin-top:16px">
+                <div class="code-label">❌ Deserialization nguy hiểm</div>
+<span class="fn">eval</span>(<span class="var">req</span>.<span class="var">body</span>.<span class="var">code</span>)  <span class="cm">// RCE ngay lập tức</span>
+              </div>
+              <div class="code-good">
+                <div class="code-label">✅ Chỉ dùng JSON.parse an toàn</div>
+<span class="kw">const</span> <span class="var">data</span> = <span class="fn">JSON</span>.<span class="fn">parse</span>(<span class="var">req</span>.<span class="var">body</span>.<span class="var">payload</span>)  <span class="cm">// An toàn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 KHÔNG rules -->
+      <div>
+        <h3 class="t-h3" style="margin-bottom:24px;color:var(--white)">🛡 Quy tắc 3 KHÔNG<br><span style="font-size:.75em;font-weight:500;color:var(--gray2)">Áp dụng cho mọi Developer</span></h3>
+        <div class="rules-list" role="list" aria-label="Quy tắc 3 không">
+          <div class="rule-item reveal" role="listitem">
+            <div class="rule-num" aria-hidden="true">1</div>
+            <div>
+              <div class="rule-title">KHÔNG tin tưởng đầu vào</div>
+              <div class="rule-desc">Mọi dữ liệu từ <span class="rule-keyword">Body</span> · <span class="rule-keyword">Query</span> · <span class="rule-keyword">Params</span> · <span class="rule-keyword">Headers</span> · <span class="rule-keyword">File</span> đều phải Validate và Sanitize trước khi xử lý.</div>
+            </div>
+          </div>
+          <div class="rule-item reveal" role="listitem">
+            <div class="rule-num" aria-hidden="true">2</div>
+            <div>
+              <div class="rule-title">KHÔNG dùng quyền cao nhất</div>
+              <div class="rule-desc">App kết nối DB không dùng <span class="rule-keyword">root/SA</span>. Dịch vụ OS không chạy quyền <span class="rule-keyword">root</span> — tránh leo thang đặc quyền LPE.</div>
+            </div>
+          </div>
+          <div class="rule-item reveal" role="listitem">
+            <div class="rule-num" aria-hidden="true">3</div>
+            <div>
+              <div class="rule-title">KHÔNG nối chuỗi trực tiếp</div>
+              <div class="rule-desc">Tuyệt đối cấm nối chuỗi với <span class="rule-keyword">SQL</span> · <span class="rule-keyword">OS Command</span> · <span class="rule-keyword">Path/Directory</span>. Luôn dùng thư viện chuẩn.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist Pre-release -->
+        <div style="margin-top:24px;padding:20px;border-radius:var(--radius-md);background:var(--surface2);border:1px solid rgba(255,255,255,.08)">
+          <p style="font-size:.78rem;font-weight:700;color:var(--gray3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px">✅ CHECKLIST PRE-RELEASE — 4 NHÓM</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="font-size:.75rem;color:var(--gray2);line-height:1.8">
+              <div style="color:var(--red-light);font-weight:700;margin-bottom:4px">🔐 Xác thực &amp; Phân quyền</div>
+              <div>☑ Account Lockout bật</div>
+              <div>☑ IDOR test (thay user_id)</div>
+              <div>☑ JWT algorithm cố định</div>
+              <div>☑ Token logout đúng</div>
+            </div>
+            <div style="font-size:.75rem;color:var(--gray2);line-height:1.8">
+              <div style="color:var(--red-light);font-weight:700;margin-bottom:4px">📁 Dữ liệu &amp; File</div>
+              <div>☑ Parameterized query</div>
+              <div>☑ Magic Bytes verify</div>
+              <div>☑ Thư mục no-execute</div>
+              <div>☑ .env không trong repo</div>
+            </div>
+            <div style="font-size:.75rem;color:var(--gray2);line-height:1.8;margin-top:8px">
+              <div style="color:var(--red-light);font-weight:700;margin-bottom:4px">⚡ Logic &amp; API</div>
+              <div>☑ Mass assignment chặn</div>
+              <div>☑ Rate-limit bật</div>
+              <div>☑ Replay OTP/coupon test</div>
+              <div>☑ SSRF Allow-list</div>
+            </div>
+            <div style="font-size:.75rem;color:var(--gray2);line-height:1.8;margin-top:8px">
+              <div style="color:var(--red-light);font-weight:700;margin-bottom:4px">⚙️ Cấu hình &amp; Hạ tầng</div>
+              <div>☑ Debug=False Production</div>
+              <div>☑ Security Headers set</div>
+              <div>☑ Log masking PII</div>
+              <div>☑ CVE Critical vá xong</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:16px 20px;border-radius:var(--radius-md);background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.2)">
+          <p style="font-size:.75rem;font-weight:700;color:#4ade80;margin-bottom:6px">🤖 AI trong Bảo mật — Nguyên tắc sử dụng</p>
+          <p style="font-size:.78rem;color:var(--gray3);line-height:1.6"><strong style="color:var(--white)">ĐƯỢC:</strong> Rà soát mã tĩnh, phân tích luồng data, phát hiện Injection/Logic Flaw sớm trong code review.</p>
+          <p style="font-size:.78rem;color:var(--gray3);line-height:1.6;margin-top:4px"><strong style="color:var(--red-light)">CẤM:</strong> Tấn công (mô phỏng hoặc thực) vào hệ thống có khách hàng thật / môi trường Production.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [08] TRAINING INFO ════════ -->
+<section class="section section-dark" id="training" aria-labelledby="training-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">05 — THÔNG TIN ĐÀO TẠO</div>
+      <h2 class="t-h2 sec-title" id="training-title">Chương trình<br><span class="grad-red">đào tạo nội bộ</span></h2>
+      <p class="sec-sub t-body">Dành riêng cho CBCNV Tổng Công ty Mạng lưới Viettel (VTNet)</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card reveal">
+        <div class="info-free">
+          <div class="info-free-label">Chi phí tham dự</div>
+          <div class="info-free-num" aria-label="Miễn phí 100%">MIỄN PHÍ</div>
+          <p style="font-size:.8rem;color:var(--gray2);margin-top:6px">100% cho CBCNV VTNet</p>
+        </div>
+        <div class="info-table" role="list" aria-label="Thông tin chi tiết chương trình">
+          <div class="info-row" role="listitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <div>
+              <div class="info-key">Tài liệu</div>
+              <div class="info-val">Cẩm Nang Bảo Mật Toàn Diện — 10 Slides tổng hợp từ 2 cẩm nang gốc</div>
+            </div>
+          </div>
+          <div class="info-row" role="listitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <div>
+              <div class="info-key">Đối tượng</div>
+              <div class="info-val">Developer · SysAdmin · InfoSec · VTNet</div>
+            </div>
+          </div>
+          <div class="info-row" role="listitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            <div>
+              <div class="info-key">Chuẩn mực</div>
+              <div class="info-val">OWASP Top 10 · Viettel Brand 2026</div>
+            </div>
+          </div>
+          <div class="info-row" role="listitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            <div>
+              <div class="info-key">Ngôn ngữ</div>
+              <div class="info-val">Python (Flask/Django/FastAPI) · Node.js (Express)</div>
+            </div>
+          </div>
+          <div class="info-row" role="listitem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <div class="info-key">Liên hệ</div>
+              <div class="info-val"><a href="tel:0989 000 564" style="color:var(--cyan)">0989 000 564</a> — Đ/c Phạm Tài Tuệ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="t-h3" style="margin-bottom:20px;color:var(--white)">Quyền lợi khi tham gia</h3>
+        <div class="perks-grid" role="list" aria-label="Quyền lợi tham gia">
+          <div class="perk reveal" role="listitem">
+            <div class="perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div>
+              <div class="perk-title">Tài liệu cẩm nang thực chiến</div>
+              <div class="perk-desc">10 slides tổng hợp từ 2 cẩm nang: <em>Khắc Phục Lỗ Hổng Đa Vai Trò</em> + <em>Lập Trình Bảo Mật Python &amp; Node.js</em> — đọc xong là làm được ngay</div>
+            </div>
+          </div>
+          <div class="perk reveal" role="listitem">
+            <div class="perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <div>
+              <div class="perk-title">Code mẫu Python &amp; Node.js</div>
+              <div class="perk-desc">6 case thực hành đầy đủ: SQLi → IDOR → File Upload → Sensitive Data → Mass Assignment → SSRF. Mỗi case có code ❌ Sai và ✅ Đúng cho cả Python lẫn Node.js</div>
+            </div>
+          </div>
+          <div class="perk reveal" role="listitem">
+            <div class="perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><polyline points="3 6 4 7 6 5"/><polyline points="3 12 4 13 6 11"/><polyline points="3 18 4 19 6 17"/></svg></div>
+            <div>
+              <div class="perk-title">Checklist Pre-release</div>
+              <div class="perk-desc">16 điểm kiểm tra chia 4 nhóm: Xác thực &amp; Phân quyền · Dữ liệu &amp; File · Logic &amp; API · Cấu hình. Có tham chiếu OWASP cho từng mục</div>
+            </div>
+          </div>
+          <div class="perk reveal" role="listitem">
+            <div class="perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div>
+              <div class="perk-title">Hướng dẫn theo vai trò</div>
+              <div class="perk-desc">Mỗi trong 8 chủ đề đều tách rõ hành động của Developer, SysAdmin và InfoSec — không còn "cái này của ai làm?" trong team nữa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [09] FAQ ════════ -->
+<section class="section section-surface" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">06 — CÂU HỎI THƯỜNG GẶP</div>
+      <h2 class="t-h2 sec-title" id="faq-title">Bạn đang<br><span class="grad-red">thắc mắc điều gì?</span></h2>
+    </div>
+
+    <div class="faq-list" role="list" aria-label="Các câu hỏi thường gặp">
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Tôi không phải chuyên gia bảo mật, học được không?
+          <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">Hoàn toàn được. Tài liệu được xây dựng theo vai trò cụ thể — bạn chỉ cần đọc phần của mình (Dev / SysAdmin / InfoSec). Mỗi hướng dẫn đều có code mẫu cụ thể, không lý thuyết chung chung.</div>
+      </div>
+
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Cẩm nang này có áp dụng được ngay vào dự án thực tế không?
+          <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">Có. Toàn bộ code mẫu Python và Node.js đều là code thực tế — copy vào dự án, thay tên biến là dùng được ngay. Checklist Pre-release cũng sẵn sàng để rà soát trước mỗi lần deploy.</div>
+      </div>
+
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Chuẩn mực nào được sử dụng để xây dựng nội dung?
+          <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">Nội dung được đối chiếu trực tiếp với OWASP Top 10 và báo cáo lỗ hổng thực tế của Viettel Networks. Mức độ rủi ro (Nghiêm trọng / Cao / Trung bình) cũng lấy từ dữ liệu thực tế — không phải lý thuyết học thuật.</div>
+      </div>
+
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Tôi chỉ làm backend Python, có cần đọc phần Node.js không?
+          <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">Không bắt buộc. Phần Quy tắc 3 KHÔNG, IAM, Hạ tầng, Giám sát áp dụng chung cho tất cả. Riêng phần code mẫu được tách rõ Python / Node.js — bạn chỉ cần đọc phần ngôn ngữ mình dùng.</div>
+      </div>
+
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          Checklist Pre-release dùng lúc nào?
+          <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">Team QA/Dev sử dụng Checklist trước mỗi lần đẩy code lên Production. Bao gồm 4 nhóm: Xác thực &amp; Phân quyền · Dữ liệu &amp; File · Logic &amp; API · Cấu hình. Mỗi mục có tham chiếu rõ ràng đến mức rủi ro OWASP.</div>
+      </div>
+
+      <div class="faq-item reveal" role="listitem">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          SysAdmin và InfoSec học phần nào là quan trọng nhất?
+          <span class="faq-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a" role="region">SysAdmin nên ưu tiên Slides 7-8: Hạ tầng/Cloud và Cấu hình/Giám sát. InfoSec nên tập trung vào Slide 3 (Bản đồ rủi ro), Slide 8 (SIEM/DevSecOps) và Slide 9 (AI trong Bảo mật). Developer ưu tiên Slides 5-6 (Code mẫu thực hành).</div>
+      </div>
+    </div>
+
+    <div class="faq-contact reveal" role="complementary" aria-label="Thông tin liên hệ hỗ trợ">
+      <p>Còn thắc mắc khác? Liên hệ trực tiếp để được hỗ trợ</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:0989 000 564" class="btn btn-outline btn-sm" aria-label="Gọi 0989 000 564">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.54 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l1.36-1.36a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 0989 000 564 — Đ/c Tuệ
+        </a>
+        <a href="mailto:security@viettel.com.vn" class="btn btn-outline btn-sm" aria-label="Gửi email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email hỗ trợ
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [10] FINAL CTA ════════ -->
+<section class="cta-section" id="register" aria-labelledby="cta-title">
+  <div class="cta-bg" aria-hidden="true"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="cta-eyebrow" role="doc-subtitle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      ĐĂNG KÝ THAM GIA NGAY HÔM NAY
+    </div>
+    <div class="cta-title" id="cta-title">
+      <span class="line1">Bảo mật không phải việc của một người.</span>
+      <span class="line2">Đây là trách nhiệm của cả đội.</span>
+    </div>
+    <p class="cta-sub">Cẩm nang tổng hợp 10 slides — từ Bản đồ Rủi ro đến Checklist Pre-release — giúp cả team Dev · SysAdmin · InfoSec cùng nói một ngôn ngữ bảo mật.</p>
+
+    <!-- Countdown -->
+    <div style="margin-bottom:8px">
+      <p style="font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gray2);margin-bottom:16px">
+        ⏰ THỜI HẠN ĐĂNG KÝ — HẾT HẠN 23:59 NGÀY 31/12/2026
+      </p>
+      <div class="countdown-wrap" role="timer" aria-label="Đồng hồ đếm ngược" aria-live="polite">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">Ngày</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">Giờ</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">Phút</span>
+        </div>
+        <div class="countdown-sep" aria-hidden="true">:</div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">Giây</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <a href="#LINK_FORM_DANG_KY" class="btn btn-primary btn-lg btn-pulse" aria-label="Đăng ký nhận tài liệu ngay" style="font-size:1.15rem;padding:20px 48px">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        ĐĂNG KÝ NHẬN TÀI LIỆU NGAY
+      </a>
+    </div>
+
+    <p class="cta-micro">
+      <span>Miễn phí 100% cho CBCNV VTNet</span>
+      <span>•</span>
+      <span>Chỉ 2 phút điền form</span>
+      <span>•</span>
+      <span>Nhận tài liệu ngay lập tức</span>
+    </p>
+
+    <div class="cta-guarantee" role="note" aria-label="Cam kết chương trình">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <span>Cam kết: Áp dụng được ngay sau khi đọc xong — mỗi slide đều có hướng dẫn hành động cụ thể</span>
+    </div>
+
+    <p class="cta-phone">Hoặc liên hệ trực tiếp: <a href="tel:0989 000 564">0989 000 564</a> — Đ/c Phạm Tài Tuệ</p>
+  </div>
+</section>
+
+<!-- ════════ [08b] PROCESS / TIMELINE ════════ -->
+<section class="process-section" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-num">07 — CÁCH THỨC THAM GIA</div>
+      <h2 class="t-h2 sec-title" id="process-title">4 bước đơn giản<br><span class="grad-red">để bắt đầu ngay hôm nay</span></h2>
+      <p class="sec-sub t-body">Từ đăng ký đến khi nhận tài liệu — toàn bộ chỉ trong vài phút</p>
+    </div>
+
+    <div class="timeline" role="list" aria-label="4 bước tham gia">
+      <div class="tl-item reveal" role="listitem">
+        <div class="tl-num" aria-hidden="true">1</div>
+        <h3 class="tl-title">Điền Form Đăng Ký</h3>
+        <p class="tl-desc">Điền tên, vai trò (Dev / SysAdmin / InfoSec) và mục tiêu học tập. Mất khoảng 2 phút, hoàn toàn miễn phí.</p>
+        <div class="tl-time">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ~2 phút
+        </div>
+      </div>
+      <div class="tl-item reveal" role="listitem">
+        <div class="tl-num" aria-hidden="true">2</div>
+        <h3 class="tl-title">Nhận Tài Liệu</h3>
+        <p class="tl-desc">Tài liệu gồm 10 slides tổng hợp, bộ code mẫu Python & Node.js và Checklist Pre-release được gửi ngay sau khi đăng ký.</p>
+        <div class="tl-time">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Tức thì
+        </div>
+      </div>
+      <div class="tl-item reveal" role="listitem">
+        <div class="tl-num" aria-hidden="true">3</div>
+        <h3 class="tl-title">Áp Dụng Thực Tế</h3>
+        <p class="tl-desc">Đọc theo vai trò của bạn, copy code mẫu vào dự án, rà soát với Checklist trước lần deploy tiếp theo. Mỗi slide có hành động cụ thể.</p>
+        <div class="tl-time">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Tuần sau
+        </div>
+      </div>
+      <div class="tl-item reveal" role="listitem">
+        <div class="tl-num" aria-hidden="true">4</div>
+        <h3 class="tl-title">Chia Sẻ Cho Team</h3>
+        <p class="tl-desc">Chia sẻ link trang này hoặc tài liệu cho đồng nghiệp — giúp cả team nói cùng một ngôn ngữ bảo mật chuẩn OWASP.</p>
+        <div class="tl-time">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Mọi lúc
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [10b] REGISTRATION FORM ════════ -->
+<section class="form-section" id="form" aria-labelledby="form-title">
+  <div class="container">
+    <div class="form-wrap">
+
+      <!-- Left: Info -->
+      <div class="form-info">
+        <div class="sec-num" style="text-align:left;margin-bottom:12px">08 — ĐĂNG KÝ NHẬN TÀI LIỆU</div>
+        <h2 class="form-info-title" id="form-title">
+          Bắt đầu<br><span class="grad-red">ngay hôm nay.</span>
+        </h2>
+        <p class="form-info-sub">Điền form bên cạnh để nhận toàn bộ cẩm nang — miễn phí, không điều kiện, dành cho CBCNV VTNet.</p>
+
+        <div class="form-perks" role="list" aria-label="Quyền lợi đăng ký">
+          <div class="form-perk" role="listitem">
+            <div class="form-perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>10 slides tổng hợp — Bản đồ rủi ro đến Checklist Pre-release</span>
+          </div>
+          <div class="form-perk" role="listitem">
+            <div class="form-perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Bộ code mẫu Python &amp; Node.js — 6 case ❌ Sai / ✅ Đúng</span>
+          </div>
+          <div class="form-perk" role="listitem">
+            <div class="form-perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Checklist Pre-release 4 nhóm — dùng được ngay trước lần deploy tới</span>
+          </div>
+          <div class="form-perk" role="listitem">
+            <div class="form-perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Hướng dẫn theo vai trò — Developer · SysAdmin · InfoSec tách biệt rõ ràng</span>
+          </div>
+          <div class="form-perk" role="listitem">
+            <div class="form-perk-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Chuẩn OWASP Top 10 — đối chiếu với lỗ hổng thực tế VTNet 2026</span>
+          </div>
+        </div>
+
+        <div class="form-contact-box" role="note" aria-label="Thông tin liên hệ hỗ trợ">
+          <p>Cần hỗ trợ? Liên hệ trực tiếp:</p>
+          <a href="tel:0989 000 564">☎ 0989 000 564</a>
+          <span style="color:var(--gray2);margin:0 8px;font-size:.8rem">·</span>
+          <a href="mailto:Tuệmn@viettel.com.vn" style="color:var(--cyan);font-weight:700;font-size:.9rem">Tuệmn@viettel.com.vn</a>
+          <p style="margin-top:6px;font-size:.72rem;color:var(--gray2)">Đ/c Phạm Tài Tuệ — Phòng Nhân sự VTNet</p>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="form-card">
+        <!-- Form fields -->
+        <div id="formFields">
+          <h3 class="form-card-title">Đăng ký nhận tài liệu</h3>
+          <p class="form-card-sub">Miễn phí · Điền trong 2 phút · Nhận ngay lập tức</p>
+
+          <form id="registrationForm" novalidate>
+            <div class="form-2col">
+              <div class="form-group">
+                <label class="form-label" for="f-name">Họ và tên <span>*</span></label>
+                <input type="text" id="f-name" name="hoTen" class="form-input" placeholder="Nguyễn Văn A" autocomplete="name" required aria-required="true">
+                <div class="form-error-msg" id="err-name" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Vui lòng nhập họ tên (tối thiểu 3 ký tự)
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-manv">Mã nhân viên <span>*</span></label>
+                <input type="text" id="f-manv" name="maNV" class="form-input" placeholder="VT123456" required aria-required="true">
+                <div class="form-error-msg" id="err-manv" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Vui lòng nhập mã NV
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-email">Email công ty <span>*</span></label>
+              <input type="email" id="f-email" name="email" class="form-input" placeholder="example@viettel.com.vn" autocomplete="email" required aria-required="true">
+              <div class="form-error-msg" id="err-email" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Vui lòng nhập email hợp lệ (@viettel.com.vn ưu tiên)
+              </div>
+            </div>
+
+            <div class="form-2col">
+              <div class="form-group">
+                <label class="form-label" for="f-role">Vai trò <span>*</span></label>
+                <select id="f-role" name="vaiTro" class="form-input" required aria-required="true">
+                  <option value="">-- Chọn vai trò --</option>
+                  <option value="developer">👨‍💻 Developer</option>
+                  <option value="sysadmin">🛠 SysAdmin / DevOps</option>
+                  <option value="infosec">🛡 InfoSec / Security</option>
+                  <option value="manager">📋 Team Lead / Manager</option>
+                  <option value="other">Khác</option>
+                </select>
+                <div class="form-error-msg" id="err-role" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Vui lòng chọn vai trò
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-dept">Phòng ban <span>*</span></label>
+                <select id="f-dept" name="phongBan" class="form-input" required aria-required="true">
+                  <option value="">-- Chọn phòng ban --</option>
+                  <option value="BO">BO (Core Network)</option>
+                  <option value="FO">FO (Fixed Operations)</option>
+                  <option value="FE">FE (Field Engineering)</option>
+                  <option value="IT">IT / Hạ tầng</option>
+                  <option value="security">Bảo mật / ATTT</option>
+                  <option value="other">Phòng ban khác</option>
+                </select>
+                <div class="form-error-msg" id="err-dept" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Vui lòng chọn phòng ban
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-exp">Kinh nghiệm bảo mật hiện tại <span>*</span></label>
+              <select id="f-exp" name="kinhNghiem" class="form-input" required aria-required="true">
+                <option value="">-- Chọn mức kinh nghiệm --</option>
+                <option value="new">Mới bắt đầu — chưa có kinh nghiệm</option>
+                <option value="basic">Cơ bản — biết các khái niệm chung</option>
+                <option value="intermediate">Trung bình — đã xử lý vài lỗ hổng thực tế</option>
+                <option value="advanced">Nâng cao — có kinh nghiệm pentest / SIEM</option>
+              </select>
+              <div class="form-error-msg" id="err-exp" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Vui lòng chọn mức kinh nghiệm
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-goal">Mục tiêu học tập (tuỳ chọn)</label>
+              <select id="f-goal" name="mucTieu" class="form-input">
+                <option value="">-- Mục tiêu chính của bạn --</option>
+                <option value="code">Viết code an toàn hơn (Injection, XSS...)</option>
+                <option value="infra">Bảo mật hạ tầng / Cloud</option>
+                <option value="audit">Audit & báo cáo bảo mật</option>
+                <option value="team">Nâng cao năng lực cả team</option>
+                <option value="cert">Đáp ứng yêu cầu KNL VTNet 2026</option>
+              </select>
+            </div>
+
+            <label class="form-check" for="f-agree">
+              <input type="checkbox" id="f-agree" name="dongY" required aria-required="true">
+              <span>Tôi đồng ý nhận tài liệu và thông tin đào tạo nội bộ từ Viettel Networks. Thông tin chỉ dùng cho mục đích nội bộ, không chia sẻ bên ngoài.</span>
+            </label>
+            <div class="form-error-msg" id="err-agree" role="alert">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Vui lòng đồng ý để tiếp tục
+            </div>
+
+            <button type="submit" class="form-submit btn-pulse" id="submitBtn" aria-label="Xác nhận đăng ký nhận tài liệu">
+              <span id="submitText">🛡 Xác Nhận Đăng Ký — Nhận Tài Liệu Ngay</span>
+            </button>
+            <p class="form-submit-sub">Miễn phí 100% · Không spam · Huỷ bất kỳ lúc nào</p>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div class="form-success" id="formSuccess" aria-live="polite" aria-atomic="true">
+          <div class="form-success-icon" aria-hidden="true">🎉</div>
+          <h3 class="form-success-title">Đăng ký thành công!</h3>
+          <p class="form-success-sub">
+            Cảm ơn bạn đã đăng ký.<br>
+            Tài liệu Bảo Mật Toàn Diện sẽ được gửi đến email của bạn trong vài phút.<br><br>
+            <strong style="color:var(--white)">Trong lúc chờ:</strong> Cuộn lên xem code mẫu Python &amp; Node.js bên trên hoặc chia sẻ trang này cho đồng nghiệp!
+          </p>
+          <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <button class="btn btn-outline btn-sm" onclick="copyLink()" aria-label="Sao chép link chia sẻ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Sao chép link chia sẻ
+            </button>
+            <a href="#riskmap" class="btn btn-primary btn-sm" aria-label="Xem nội dung ngay">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg> Xem nội dung ngay
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ [11] FOOTER ════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="nav-logo" aria-hidden="true">V</div>
+          <div class="footer-brand-name">VIETTEL NETWORKS</div>
+        </div>
+        <p class="footer-tagline">Tổng Công ty Mạng lưới — Viettel Group<br>Tài liệu nội bộ · Không phân phối ra ngoài</p>
+        <div style="margin-top:16px">
+          <div class="footer-badge" role="note" aria-label="Nhận diện thương hiệu Viettel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Chuẩn Brand VTNet 2026
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Nội dung</div>
+        <nav class="footer-links" aria-label="Menu nội dung">
+          <a href="#riskmap" class="footer-link">Bản đồ rủi ro</a>
+          <a href="#benefits" class="footer-link">Lợi ích theo vai trò</a>
+          <a href="#curriculum" class="footer-link">Nội dung chương trình</a>
+          <a href="#training" class="footer-link">Thông tin đào tạo</a>
+          <a href="#faq" class="footer-link">Câu hỏi thường gặp</a>
+        </nav>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Liên hệ</div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.54 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l1.36-1.36a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>0989 000 564<br>Đ/c Phạm Tài Tuệ</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>phamtaitue@viettel.com.vn</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span>VTNet Intranet > Brand Assets</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Tổng Công ty Mạng lưới Viettel (VTNet) · Tài liệu nội bộ · Bảo mật toàn diện</div>
+      <div>
+        <div class="share-row" aria-label="Chia sẻ trang">
+          <span class="share-label">Chia sẻ:</span>
+          <button class="share-btn zalo" onclick="shareZalo()" aria-label="Chia sẻ qua Zalo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Zalo
+          </button>
+          <button class="share-btn" onclick="shareEmail()" aria-label="Chia sẻ qua Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email
+          </button>
+          <button class="share-btn copy-link" onclick="copyLink()" aria-label="Sao chép link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Sao chép link
+          </button>
+          <span class="copied-tip" id="copiedTip">✓ Đã sao chép!</span>
+        </div>
+      </div>
+      <div class="footer-social" aria-label="Mạng xã hội">
+        <a href="#" class="social-btn" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:phamtaitue@viettel.com.vn" class="social-btn" aria-label="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy">Font: Be Vietnam Pro · Brand: FS Magistral / PF BeauSans Pro</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════ STICKY BAR ════════ -->
+<div class="sticky-bar" id="stickyBar" role="complementary" aria-label="Thanh đăng ký nhanh">
+  <span class="sticky-bar-text">🛡 <strong>Bảo Mật Toàn Diện</strong> — Cẩm nang thực chiến cho mọi vai trò</span>
+  <a href="#form" class="btn btn-primary btn-sm" aria-label="Đăng ký ngay">Đăng ký ngay</a>
+</div>
+
+<!-- ════════ FLOAT BUTTON ════════ -->
+<a href="#register" class="float-btn" aria-label="Đăng ký nhận tài liệu">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+</a>
+
+<!-- ════════ TOAST ════════ -->
+<div class="toast-container" aria-live="polite" aria-atomic="true">
+  <div class="toast" id="toast" role="status">
+    <span class="toast-dot" aria-hidden="true"></span>
+    <span id="toast-text">Đ/c Nguyễn Văn A vừa đăng ký tài liệu</span>
+  </div>
+</div>
+
+<!-- ════════ EXIT POPUP ════════ -->
+<div class="popup-overlay" id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Đóng popup">×</button>
+    <div class="popup-icon" aria-hidden="true">🛡️</div>
+    <h3 class="popup-title t-h3" id="popup-title">Đừng để lỡ tài liệu này!</h3>
+    <p class="popup-sub">Cẩm nang Bảo Mật Toàn Diện — 10 slides với code mẫu thực chiến — miễn phí cho CBCNV VTNet.</p>
+    <a href="#register" class="btn btn-primary" style="width:100%;justify-content:center" onclick="closePopup()" aria-label="Đăng ký ngay">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;display:inline-block;vertical-align:middle"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      Đăng ký nhận ngay — Miễn phí
+    </a>
+    <p style="margin-top:12px;font-size:.75rem;color:var(--gray2)">Chỉ 2 phút · Miễn phí 100% · Nhận ngay lập tức</p>
+  </div>
+</div>
+
+<!-- ════════ JAVASCRIPT ════════ -->
+<script>
+// ── Urgency banner ───────────────────────────────────
+function closeBanner(){
+  const b = document.getElementById('urgencyBanner');
+  b.style.display='none';
+  document.body.classList.remove('has-banner');
+  nav.style.top='0';
+  document.querySelector('.hero').style.paddingTop='120px';
+}
+
+// ── Particle canvas ───────────────────────────────────
+(function(){
+  const canvas = document.getElementById('particle-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles=[];
+
+  function resize(){
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const COLORS = ['rgba(227,6,19,','rgba(0,212,255,','rgba(255,100,100,'];
+  for(let i=0;i<55;i++){
+    particles.push({
+      x:Math.random()*1000, y:Math.random()*1000,
+      r:Math.random()*2+.5,
+      dx:(Math.random()-.5)*.4, dy:(Math.random()-.5)*.4,
+      c:COLORS[Math.floor(Math.random()*COLORS.length)],
+      o:Math.random()*.5+.2
+    });
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x%W, p.y%H, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.c+p.o+')';
+      ctx.fill();
+      p.x+=p.dx; p.y+=p.dy;
+    });
+    // Draw connecting lines between nearby particles
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const a=particles[i], b=particles[j];
+        const dist=Math.hypot((a.x%W)-(b.x%W),(a.y%H)-(b.y%H));
+        if(dist<120){
+          ctx.beginPath();
+          ctx.moveTo(a.x%W,a.y%H);
+          ctx.lineTo(b.x%W,b.y%H);
+          ctx.strokeStyle=`rgba(227,6,19,${.08*(1-dist/120)})`;
+          ctx.lineWidth=.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── Countdown timer ───────────────────────────────────
+(function(){
+  // Target: 31/12/2026 23:59:59 VN time (UTC+7)
+  const deadline = new Date('2026-12-31T23:59:59+07:00').getTime();
+  const els = {
+    days:  document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    mins:  document.getElementById('cd-mins'),
+    secs:  document.getElementById('cd-secs'),
+  };
+  if(!els.days) return;
+
+  function pad(n){ return String(n).padStart(2,'0') }
+
+  function tick(){
+    const now = Date.now();
+    const diff = Math.max(0, deadline - now);
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+
+    const prev = {
+      days: els.days.textContent, hours: els.hours.textContent,
+      mins: els.mins.textContent,  secs:  els.secs.textContent,
+    };
+    const next = { days:pad(d), hours:pad(h), mins:pad(m), secs:pad(s) };
+
+    Object.entries(next).forEach(([k,v])=>{
+      if(prev[k]!==v){
+        els[k].textContent = v;
+        els[k].style.transform = 'scale(1.08)';
+        setTimeout(()=>{ els[k].style.transform='scale(1)' }, 150);
+      }
+    });
+
+    if(diff>0) setTimeout(tick, 1000);
+    else Object.values(els).forEach(el=>{ el.textContent='00'; el.style.color='var(--gray2)'; });
+  }
+  tick();
+})();
+
+// ── Share functions ───────────────────────────────────
+function shareZalo(){
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent('Cẩm nang Bảo Mật Toàn Diện — Khắc Phục Lỗ Hổng & Lập Trình An Toàn · VTNet 2026');
+  window.open(`https://zalo.me/share?url=${url}&text=${text}`,'_blank');
+}
+function shareEmail(){
+  const subject = encodeURIComponent('[VTNet] Cẩm nang Bảo Mật Toàn Diện 2026');
+  const body = encodeURIComponent(`Chào bạn,\n\nMình muốn chia sẻ cẩm nang Bảo Mật Toàn Diện (Khắc Phục Lỗ Hổng & Lập Trình An Toàn) — dành cho Dev, SysAdmin và InfoSec VTNet.\n\nXem tại: ${window.location.href}`);
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+}
+function copyLink(){
+  navigator.clipboard.writeText(window.location.href).then(()=>{
+    const tip = document.getElementById('copiedTip');
+    tip.classList.add('show');
+    setTimeout(()=>tip.classList.remove('show'), 2500);
+  });
+}
+
+// ── Nav update for banner ─────────────────────────────
+function updateHeroBottom(){
+  const hero = document.querySelector('.hero');
+  heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 600;
+}
+
+// ── Form validation & submit ──────────────────────────
+(function(){
+  const form = document.getElementById('registrationForm');
+  if(!form) return;
+
+  const fields = [
+    { id:'f-name',  errId:'err-name',  validate: v => v.trim().length >= 3 },
+    { id:'f-manv',  errId:'err-manv',  validate: v => v.trim().length >= 4 },
+    { id:'f-email', errId:'err-email', validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+    { id:'f-role',  errId:'err-role',  validate: v => v !== '' },
+    { id:'f-dept',  errId:'err-dept',  validate: v => v !== '' },
+    { id:'f-exp',   errId:'err-exp',   validate: v => v !== '' },
+    { id:'f-agree', errId:'err-agree', validate: v => document.getElementById('f-agree').checked, isCheckbox:true },
+  ];
+
+  function setFieldState(id, errId, isValid){
+    const el = document.getElementById(id);
+    const err = document.getElementById(errId);
+    if(!el||!err) return;
+    el.classList.toggle('has-error', !isValid);
+    el.classList.toggle('has-success', isValid);
+    err.classList.toggle('show', !isValid);
+  }
+
+  // Live validation on blur
+  fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    if(!el) return;
+    const ev = f.isCheckbox ? 'change' : 'blur';
+    el.addEventListener(ev, () => {
+      const val = el.value;
+      if(val || f.isCheckbox) setFieldState(f.id, f.errId, f.validate(val));
+    });
+    // Clear error on focus/change
+    el.addEventListener('input', () => {
+      if(el.classList.contains('has-error')){
+        el.classList.remove('has-error');
+        document.getElementById(f.errId).classList.remove('show');
+      }
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      const ok = f.validate(el ? el.value : '');
+      setFieldState(f.id, f.errId, ok);
+      if(!ok) valid = false;
+    });
+    if(!valid){
+      // Scroll to first error
+      const firstErr = form.querySelector('.has-error');
+      if(firstErr) firstErr.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+    // Submit success simulation
+    const btn = document.getElementById('submitBtn');
+    const txt = document.getElementById('submitText');
+    btn.disabled = true;
+    txt.textContent = '⏳ Đang xử lý...';
+    setTimeout(() => {
+      document.getElementById('formFields').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+      // Re-init Lucide for new icons in success state
+      // Icons: inline SVG (no CDN needed)
+      // Scroll to success
+      document.getElementById('form').scrollIntoView({behavior:'smooth'});
+    }, 1200);
+  });
+})();
+
+// Init Lucide icons
+// Icons: inline SVG (no CDN needed)
+
+// ── Nav scroll ──────────────────────────────────────────────────
+const nav = document.getElementById('nav');
+const stickyBar = document.getElementById('stickyBar');
+let heroBottom = 0;
+
+function updateHeroBottom(){
+  const hero = document.querySelector('.hero');
+  heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 600;
+}
+updateHeroBottom();
+
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  nav.classList.toggle('scrolled', y > 20);
+  stickyBar.classList.toggle('show', y > heroBottom);
+}, { passive: true });
+
+window.addEventListener('resize', updateHeroBottom);
+
+// ── Scroll reveal ────────────────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// ── Counting animation ───────────────────────────────────────────
+const countEls = document.querySelectorAll('[data-count]');
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 40));
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 40);
+      countObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+countEls.forEach(el => countObs.observe(el));
+
+// ── Role tabs ────────────────────────────────────────────────────
+function switchRole(role) {
+  document.querySelectorAll('.role-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.role-panel').forEach(p => p.classList.remove('active'));
+
+  const tab = document.querySelector(`#tab-${role}`);
+  const panel = document.querySelector(`#panel-${role}`);
+  if (tab) { tab.classList.add('active'); tab.setAttribute('aria-selected', 'true'); }
+  if (panel) panel.classList.add('active');
+}
+
+// ── Code tabs ────────────────────────────────────────────────────
+function switchCode(lang) {
+  document.querySelectorAll('.code-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('active'));
+
+  const tab = document.querySelector(`#ctab-${lang}`);
+  const panel = document.querySelector(`#code-${lang}`);
+  if (tab) { tab.classList.add('active'); tab.setAttribute('aria-selected', 'true'); }
+  if (panel) panel.classList.add('active');
+}
+
+// ── FAQ accordion ────────────────────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// ── Toast FOMO ───────────────────────────────────────────────────
+const names = [
+  'Đ/c Nguyễn Văn Hùng vừa đăng ký tài liệu',
+  'Đ/c Trần Thị Mai vừa xem Checklist Pre-release',
+  'Đ/c Lê Tuệ Tuấn vừa lưu cẩm nang bảo mật',
+  'Đ/c Phạm Thị Lan vừa đăng ký',
+  'Đ/c Hoàng Văn Nam vừa nhận tài liệu',
+  'Đ/c Vũ Thị Hoa vừa chia sẻ cho team',
+];
+let toastIdx = 0;
+const toast = document.getElementById('toast');
+const toastText = document.getElementById('toast-text');
+
+function showToast() {
+  toastText.textContent = names[toastIdx % names.length];
+  toastIdx++;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
+setTimeout(() => {
+  showToast();
+  setInterval(showToast, 15000);
+}, 8000);
+
+// ── Exit intent popup ────────────────────────────────────────────
+let popupShown = false;
+document.addEventListener('mouseleave', (e) => {
+  if (e.clientY < 20 && !popupShown) {
+    popupShown = true;
+    document.getElementById('exitPopup').classList.add('show');
+  }
+});
+
+function closePopup() {
+  document.getElementById('exitPopup').classList.remove('show');
+}
+document.getElementById('exitPopup').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('exitPopup')) closePopup();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePopup();
+});
+
+// ── Smooth scroll for nav links ──────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
